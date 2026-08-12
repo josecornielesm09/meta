@@ -6,7 +6,7 @@ import LogoMarquee from "@/components/LogoMarquee";
 import SerpMock from "@/components/SerpMock";
 import GoogleReviews from "@/components/GoogleReviews";
 import PanelMock from "@/components/PanelMock";
-import ShowcaseMock from "@/components/ShowcaseMock";
+import ContentSlider from "@/components/ContentSlider";
 import StackedReviews from "@/components/StackedReviews";
 import MapCard from "@/components/MapCard";
 import Media from "@/components/Media";
@@ -147,19 +147,13 @@ export default function HomePage() {
             })}
           </div>
 
-          {/* preview de entregables */}
+          {/* preview de entregables (slider compacto con autoplay) */}
           <Reveal className="mt-16 text-center">
             <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Contenido optimizado</span>
             <h3 className="mt-2 font-display text-2xl font-black text-brand-navy sm:text-3xl">Así se verá tu negocio</h3>
+            <p className="mt-2 text-sm text-slate-500">Desliza para ver tu página web, videos, imágenes y perfil de Google.</p>
           </Reveal>
-          <Reveal className="mt-8 rounded-3xl bg-brand-navy p-6 sm:p-10">
-            <div className="hidden sm:block">
-              <Media src="/media/showcase-desktop.png" alt="Contenido del negocio" className="mx-auto w-full max-w-4xl rounded-xl" fallback={<ShowcaseMock />} />
-            </div>
-            <div className="sm:hidden">
-              <Media src="/media/showcase-mobile.png" alt="Contenido del negocio" className="mx-auto w-full max-w-sm rounded-xl" fallback={<ShowcaseMock />} />
-            </div>
-          </Reveal>
+          <Reveal className="mx-auto mt-8 max-w-2xl"><ContentSlider /></Reveal>
         </div>
       </section>
 
