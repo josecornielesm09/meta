@@ -5,6 +5,7 @@ import Reveal from "@/components/Reveal";
 import LogoMarquee from "@/components/LogoMarquee";
 import SerpMock from "@/components/SerpMock";
 import GoogleReviews from "@/components/GoogleReviews";
+import PanelMock, { LeadsRing } from "@/components/PanelMock";
 
 const GoogleWord = () => (
   <span className="whitespace-nowrap font-display">
@@ -152,13 +153,13 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Mockups */}
+          {/* Mockup del panel */}
           <div className="relative flex justify-center lg:justify-end">
             <div className="animate-floaty">
-              <LaptopMock />
+              <PanelMock />
             </div>
             <div className="absolute -bottom-8 left-0 hidden animate-floaty sm:block" style={{ animationDelay: "1.5s" }}>
-              <PhoneMock />
+              <LeadsRing />
             </div>
           </div>
         </div>
