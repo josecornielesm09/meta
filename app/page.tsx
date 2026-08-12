@@ -3,7 +3,8 @@ import { PLAN, VIDEOS, STEPS } from "@/lib/plan";
 import { Icons, Stars } from "@/components/Icons";
 import Reveal from "@/components/Reveal";
 import LogoMarquee from "@/components/LogoMarquee";
-import TestimonialsSlider from "@/components/TestimonialsSlider";
+import SerpMock from "@/components/SerpMock";
+import GoogleReviews from "@/components/GoogleReviews";
 
 const GoogleWord = () => (
   <span className="whitespace-nowrap font-display">
@@ -199,14 +200,28 @@ export default function HomePage() {
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {PLAN.features.map((f, i) => {
               const Icon = Icons[f.id] ?? Icons.check;
+              const scenes: Record<string, string> = {
+                gbp_setup: "from-blue-500 to-brand-blue",
+                keywords: "from-violet-500 to-indigo-600",
+                web: "from-cyan-500 to-sky-600",
+                whatsapp: "from-green-500 to-emerald-600",
+                videos: "from-rose-500 to-red-600",
+                imagenes: "from-amber-400 to-orange-500",
+                reviews: "from-yellow-400 to-amber-500",
+              };
               return (
                 <Reveal key={f.id} delay={(i % 3) * 90}>
-                  <div className="group spring h-full rounded-2xl border border-slate-200 bg-white p-6 hover:-translate-y-1.5 hover:border-brand-green/40 hover:shadow-soft">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-navy text-brand-green transition duration-300 group-hover:scale-110 group-hover:bg-brand-green group-hover:text-white">
-                      <Icon className="h-6 w-6" />
+                  <div className="group spring h-full overflow-hidden rounded-2xl border border-slate-200 bg-white hover:-translate-y-1.5 hover:border-brand-green/40 hover:shadow-soft">
+                    {/* "foto" ilustrada */}
+                    <div className={`relative flex h-32 items-center justify-center bg-gradient-to-br ${scenes[f.id] ?? "from-slate-500 to-slate-700"}`}>
+                      <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 20% 20%, #fff 1px, transparent 1px)", backgroundSize: "16px 16px" }} />
+                      <Icon className="h-12 w-12 text-white drop-shadow transition duration-500 group-hover:scale-110" />
+                      <Icon className="pointer-events-none absolute -bottom-4 -right-3 h-24 w-24 text-white/10" />
                     </div>
-                    <h3 className="mt-4 font-display text-lg font-bold text-brand-navy">{f.title}</h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{f.desc}</p>
+                    <div className="p-6">
+                      <h3 className="font-display text-lg font-bold text-brand-navy">{f.title}</h3>
+                      <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{f.desc}</p>
+                    </div>
                   </div>
                 </Reveal>
               );
@@ -249,6 +264,32 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ===== Demostración SEO ===== */}
+      <section className="bg-slate-50 py-20">
+        <div className="container-x grid items-center gap-12 lg:grid-cols-2">
+          <Reveal>
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Así funciona el SEO</span>
+            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">
+              De la página 2… a ser <span className="text-brand-green">el primero</span>
+            </h2>
+            <p className="mt-4 text-slate-600">
+              El 90% de las personas nunca pasa de la primera página de Google. Si tu negocio no está
+              arriba, es como si no existiera. Con SEO Local subimos tu ficha al{" "}
+              <strong>“map pack”</strong> — las 3 fichas con mapa que Google muestra primero.
+            </p>
+            <ul className="mt-6 space-y-3 text-slate-700">
+              {["Apareces en el mapa cuando buscan tu servicio", "Por encima de tu competencia directa", "Más clics, llamadas y visitas a tu negocio"].map((t) => (
+                <li key={t} className="flex items-center gap-3">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-green text-white"><Icons.check className="h-3.5 w-3.5" /></span>
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+          <Reveal delay={120}><SerpMock /></Reveal>
+        </div>
+      </section>
+
       {/* ===== Videos ===== */}
       <section className="bg-brand-navy py-20 text-white">
         <div className="container-x">
@@ -278,15 +319,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== Testimonios ===== */}
-      <section className="bg-slate-50 py-20">
+      {/* ===== Reseñas de Google ===== */}
+      <section className="py-20">
         <div className="container-x">
           <Reveal className="mx-auto mb-12 max-w-2xl text-center">
             <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Testimonios</span>
-            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">Lo que dicen nuestros clientes</h2>
-            <p className="mt-3 text-slate-500">Negocios reales que hoy aparecen primero en Google.</p>
+            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">Reseñas reales de clientes</h2>
+            <p className="mt-3 text-slate-500">Negocios que hoy aparecen primero en Google.</p>
           </Reveal>
-          <Reveal><TestimonialsSlider /></Reveal>
+          <Reveal><GoogleReviews /></Reveal>
         </div>
       </section>
 
