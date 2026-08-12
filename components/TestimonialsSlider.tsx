@@ -115,14 +115,14 @@ export default function TestimonialsSlider() {
         >
           {TESTIMONIALS.map((t) => (
             <div key={t.name} className="w-full shrink-0 px-1">
-              <div className="glass-panel rounded-3xl p-8 text-center sm:p-10">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/10 text-3xl">
+              <div className="rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-card sm:p-10">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue/10 to-brand-green/10 text-3xl">
                   {t.avatar}
                 </div>
                 <div className="mt-3 text-amber-400">★★★★★</div>
-                <p className="pointer-events-none mt-4 text-lg leading-relaxed text-slate-100">“{t.text}”</p>
-                <div className="mt-5 font-display font-bold text-white">{t.name}</div>
-                <div className="text-sm text-slate-400">{t.role}</div>
+                <p className="pointer-events-none mt-4 text-lg leading-relaxed text-slate-700">“{t.text}”</p>
+                <div className="mt-5 font-display font-bold text-brand-navy">{t.name}</div>
+                <div className="text-sm text-slate-500">{t.role}</div>
               </div>
             </div>
           ))}
