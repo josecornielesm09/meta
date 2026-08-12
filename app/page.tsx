@@ -1,15 +1,19 @@
 import Link from "next/link";
-import { PLAN, waLink, SITE, CTA, BUSINESS_TYPES, BEFORE, AFTER } from "@/lib/plan";
+import { PLAN, waLink, SITE, CTA, BUSINESS_TYPES, BEFORE, AFTER, SYSTEM, SYSTEM_NAME } from "@/lib/plan";
 import { Icons, Stars } from "@/components/Icons";
 import Reveal from "@/components/Reveal";
 import LogoMarquee from "@/components/LogoMarquee";
+import SerpMock from "@/components/SerpMock";
+import GoogleReviews from "@/components/GoogleReviews";
 import PanelMock from "@/components/PanelMock";
 import ContentSlider from "@/components/ContentSlider";
+import StackedReviews from "@/components/StackedReviews";
+import MapCard from "@/components/MapCard";
 import Media from "@/components/Media";
+import ResumenStrip from "@/components/ResumenStrip";
 import MobileMenu from "@/components/MobileMenu";
+import Faq from "@/components/Faq";
 import TypingGoogle from "@/components/TypingGoogle";
-import MouseGlow from "@/components/MouseGlow";
-import ReviewsSlider from "@/components/ReviewsSlider";
 
 const GoogleWord = () => (
   <span className="whitespace-nowrap font-display">
@@ -32,9 +36,8 @@ export default function HomePage() {
   return (
     <main className="overflow-x-hidden pb-16 sm:pb-0">
       {/* ===== Header ===== */}
-      <header className="glass-dark sticky top-0 z-50 overflow-hidden border-b border-white/10">
-        <MouseGlow color="rgba(22,163,74,0.35)" size={220} />
-        <div className="container-x relative z-10 flex items-center justify-between py-3">
+      <header className="glass-dark sticky top-0 z-50 border-b border-white/10">
+        <div className="container-x flex items-center justify-between py-3">
           <Link href="/" className="flex items-center gap-2.5">
             <img src={SITE.logo} alt={SITE.name} className="h-11 w-auto" />
             <span className="hidden font-display text-sm font-bold leading-tight text-white sm:block">
@@ -43,7 +46,10 @@ export default function HomePage() {
           </Link>
           <nav className="hidden gap-7 text-sm font-medium text-slate-300 md:flex">
             <a href="#incluye" className="transition hover:text-white">Qué incluye</a>
+            <a href="#sistema" className="transition hover:text-white">Sistema</a>
+            <a href="#reputacion" className="transition hover:text-white">Reseñas</a>
             <a href="#precio" className="transition hover:text-white">Precio</a>
+            <a href="#faq" className="transition hover:text-white">FAQ</a>
           </nav>
           <div className="flex items-center gap-2">
             <a href={waMain()} target="_blank" rel="noopener noreferrer" className="press hidden rounded-full bg-brand-green px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-brand-green/25 transition hover:bg-brand-greenDark sm:inline-block">
@@ -63,7 +69,7 @@ export default function HomePage() {
         <div className="container-x relative grid items-center gap-10 py-12 lg:grid-cols-2 lg:py-20">
           <div className="animate-fade-up">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold text-slate-200">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-brand-green" /> Sistema de Posicionamiento Local · Negocios locales
+              <span className="h-2 w-2 animate-pulse rounded-full bg-brand-green" /> {SYSTEM_NAME} · Negocios locales
             </span>
             <h1 className="mt-5 font-display text-3xl font-black leading-[1.08] sm:text-4xl lg:text-5xl">
               Haz que más clientes encuentren tu negocio en <TypingGoogle />
@@ -102,10 +108,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== 2. Prueba / confianza ===== */}
+      {/* ===== 2. Prueba / confianza + resumen visual ===== */}
       <section className="bg-white py-12">
         <div className="container-x">
-          <p className="mb-6 text-center text-sm font-semibold uppercase tracking-widest text-slate-400">
+          <Reveal><ResumenStrip /></Reveal>
+          <p className="mb-6 mt-12 text-center text-sm font-semibold uppercase tracking-widest text-slate-400">
             Negocios locales que confían en nosotros
           </p>
           <LogoMarquee />
@@ -113,7 +120,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== 3. Todo lo que incluye ===== */}
-      <section id="incluye" className="bg-slate-50 py-12 sm:py-16">
+      <section id="incluye" className="bg-slate-50 py-16 sm:py-20">
         <div className="container-x">
           <Reveal className="mx-auto max-w-2xl text-center">
             <span className="text-sm font-bold uppercase tracking-widest text-brand-green">La oferta completa</span>
@@ -141,37 +148,47 @@ export default function HomePage() {
             })}
           </div>
 
-          {/* Un solo ecosistema (imagen del cliente con respaldo al slider) */}
-          <Reveal className="mt-10">
-            {/* respaldo cuando aún no subes la imagen */}
-            {(() => {
-              const Fallback = (
-                <div>
-                  <div className="text-center">
-                    <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Contenido optimizado</span>
-                    <h3 className="mt-2 font-display text-2xl font-black text-brand-navy sm:text-3xl">Así se verá tu negocio</h3>
-                    <p className="mt-2 text-sm text-slate-500">Desliza para ver tu página web, videos, imágenes y perfil de Google.</p>
-                  </div>
-                  <div className="mx-auto mt-8 max-w-2xl"><ContentSlider /></div>
-                </div>
-              );
-              return (
-                <>
-                  <div className="hidden lg:block">
-                    <Media src="/media/ecosistema-desktop.png" alt="Un solo ecosistema: Google Business, fotos, publicaciones, reseñas y calificación" className="mx-auto w-full max-w-5xl" fallback={Fallback} />
-                  </div>
-                  <div className="lg:hidden">
-                    <Media src="/media/ecosistema-mobile.png" alt="Un solo ecosistema para más visibilidad y más clientes" className="mx-auto w-full max-w-md" fallback={Fallback} />
-                  </div>
-                </>
-              );
-            })()}
+          {/* preview de entregables (slider compacto con autoplay) */}
+          <Reveal className="mt-16 text-center">
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Contenido optimizado</span>
+            <h3 className="mt-2 font-display text-2xl font-black text-brand-navy sm:text-3xl">Así se verá tu negocio</h3>
+            <p className="mt-2 text-sm text-slate-500">Desliza para ver tu página web, videos, imágenes y perfil de Google.</p>
           </Reveal>
+          <Reveal className="mx-auto mt-8 max-w-2xl"><ContentSlider /></Reveal>
+        </div>
+      </section>
+
+      {/* ===== 4. Sistema de Posicionamiento Local ===== */}
+      <section id="sistema" className="py-16 sm:py-20">
+        <div className="container-x">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">No son piezas sueltas</span>
+            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">{SYSTEM_NAME}</h2>
+            <p className="mt-3 text-slate-500">No estás comprando “una web + unas imágenes”. Construimos una presencia digital completa donde cada elemento potencia al siguiente.</p>
+          </Reveal>
+
+          <div className="mt-12 flex flex-col items-stretch gap-3 md:flex-row md:items-center md:justify-center">
+            {SYSTEM.map((s, i) => {
+              const Icon = Icons[s.icon] ?? Icons.check;
+              const last = i === SYSTEM.length - 1;
+              return (
+                <Reveal key={s.label} delay={i * 90} className="md:contents">
+                  <div className={`flex items-center gap-3 rounded-2xl border p-4 md:w-36 md:flex-col md:text-center ${last ? "border-brand-green bg-green-50" : "border-slate-200 bg-white"}`}>
+                    <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${last ? "bg-brand-green text-white" : "bg-brand-navy text-brand-green"}`}>
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <span className={`text-sm font-bold ${last ? "text-brand-greenDark" : "text-brand-navy"}`}>{s.label}</span>
+                  </div>
+                  {!last && <span className="mx-auto text-brand-green md:mx-0">↓<span className="hidden md:inline">→</span></span>}
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
       </section>
 
       {/* ===== 5. Antes / Después ===== */}
-      <section className="bg-slate-50 py-12 sm:py-16">
+      <section className="bg-slate-50 py-16 sm:py-20">
         <div className="container-x">
           <Reveal className="mx-auto max-w-2xl text-center">
             <span className="text-sm font-bold uppercase tracking-widest text-brand-green">La transformación</span>
@@ -206,8 +223,45 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== Tipos de negocios ===== */}
-      <section className="py-12 sm:py-16">
+      {/* ===== 6. Beneficio / value prop ===== */}
+      <section className="py-16 sm:py-20">
+        <div className="container-x grid items-center gap-12 lg:grid-cols-2">
+          <Reveal>
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">El problema real</span>
+            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">
+              Tus clientes ya están buscando en Google
+            </h2>
+            <p className="mt-4 text-lg text-slate-600">
+              La pregunta es si encuentran primero <strong className="text-brand-navy">tu negocio</strong> o a <strong className="text-slate-400">tu competencia</strong>.
+            </p>
+            <p className="mt-4 text-slate-600">
+              Optimizamos tu presencia digital para que tu negocio aparezca cuando buscan tus servicios en tu zona, con un perfil sólido, contenido profesional y buena reputación.
+            </p>
+          </Reveal>
+          <Reveal delay={120}><SerpMock /></Reveal>
+        </div>
+      </section>
+
+      {/* ===== 7. Reputación / 30 reseñas ===== */}
+      <section id="reputacion" className="bg-brand-navy py-16 text-white sm:py-20">
+        <div className="container-x grid items-center gap-12 lg:grid-cols-2">
+          <Reveal>
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Reputación</span>
+            <h2 className="mt-2 font-display text-3xl font-black sm:text-4xl">Una mejor reputación genera más confianza</h2>
+            <div className="mt-6 flex items-center gap-4">
+              <div className="text-amber-400 text-3xl">★★★★★</div>
+              <div className="font-display text-4xl font-black">30 <span className="text-lg font-bold text-slate-300">reseñas incluidas</span></div>
+            </div>
+            <p className="mt-4 text-slate-300">
+              Las reseñas fortalecen la presencia y la percepción de tu negocio en Google. Un perfil con buenas reseñas transmite confianza y ayuda a que más clientes te elijan.
+            </p>
+          </Reveal>
+          <Reveal delay={120}><StackedReviews /></Reveal>
+        </div>
+      </section>
+
+      {/* ===== 8. Tipos de negocios ===== */}
+      <section className="py-16 sm:py-20">
         <div className="container-x">
           <Reveal className="mx-auto max-w-2xl text-center">
             <span className="text-sm font-bold uppercase tracking-widest text-brand-green">¿Para quién es?</span>
@@ -223,19 +277,44 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== Reseñas (slider) ===== */}
-      <section className="py-12 sm:py-16">
+      {/* ===== 9. Presencia digital (Google Business) ===== */}
+      <section className="bg-slate-50 py-16 sm:py-20">
         <div className="container-x">
-          <Reveal className="mx-auto mb-8 max-w-2xl text-center">
-            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Testimonios</span>
-            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">Lo que dicen nuestros clientes</h2>
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Presencia digital que genera confianza</span>
+            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">Aparece donde te buscan</h2>
+            <p className="mt-3 text-slate-500">Perfil de Google Business, reseñas y posicionamiento local para atraer más clientes cada día.</p>
           </Reveal>
-          <Reveal><ReviewsSlider /></Reveal>
+          <Reveal className="mt-10">
+            {/* imagen del mockup de Google (si existe); si no, respaldo con mapa + reseñas */}
+            <div className="hidden lg:block">
+              <Media src="/media/google-desktop.png" alt="Presencia en Google Business"
+                className="mx-auto w-full max-w-5xl rounded-2xl shadow-soft"
+                fallback={<div className="grid items-center gap-8 lg:grid-cols-2"><MapCard /><StackedReviews /></div>} />
+            </div>
+            <div className="lg:hidden">
+              <Media src="/media/google-mobile.png" alt="Presencia en Google Business"
+                className="mx-auto w-full max-w-md rounded-2xl shadow-soft"
+                fallback={<MapCard />} />
+            </div>
+          </Reveal>
+          <p className="mt-6 text-center text-xs text-slate-400">* Los paneles y ejemplos son ilustrativos, no resultados de un cliente específico.</p>
         </div>
       </section>
 
-      {/* ===== Precio ===== */}
-      <section id="precio" className="bg-slate-50 py-12 sm:py-16">
+      {/* ===== 10. Testimonios ===== */}
+      <section className="py-16 sm:py-20">
+        <div className="container-x">
+          <Reveal className="mx-auto mb-10 max-w-2xl text-center">
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Testimonios</span>
+            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">Lo que dicen los negocios</h2>
+          </Reveal>
+          <Reveal><GoogleReviews /></Reveal>
+        </div>
+      </section>
+
+      {/* ===== 11. Precio ===== */}
+      <section id="precio" className="bg-slate-50 py-16 sm:py-20">
         <div className="container-x">
           <Reveal className="mx-auto max-w-2xl text-center">
             <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Una inversión, todo incluido</span>
@@ -272,7 +351,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== CTA final ===== */}
+      {/* ===== 12. FAQ ===== */}
+      <section id="faq" className="py-16 sm:py-20">
+        <div className="container-x">
+          <Reveal className="mx-auto mb-10 max-w-2xl text-center">
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Preguntas frecuentes</span>
+            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">¿Tienes dudas?</h2>
+          </Reveal>
+          <Reveal><Faq /></Reveal>
+        </div>
+      </section>
+
+      {/* ===== 13. CTA final ===== */}
       <section className="relative overflow-hidden bg-brand-green py-16 text-center text-white">
         <div className="dot-grid absolute inset-0 opacity-20" />
         <div className="container-x relative">
@@ -289,9 +379,8 @@ export default function HomePage() {
       </section>
 
       {/* ===== Footer ===== */}
-      <footer className="relative overflow-hidden bg-brand-navy pt-14 text-slate-400">
-        <MouseGlow color="rgba(26,115,232,0.3)" size={320} />
-        <div className="container-x relative z-10 grid gap-10 pb-10 sm:grid-cols-2 lg:grid-cols-4">
+      <footer className="bg-brand-navy pt-14 text-slate-400">
+        <div className="container-x grid gap-10 pb-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <img src={SITE.logo} alt={SITE.name} className="h-14 w-auto" />
             <p className="mt-3 max-w-xs text-sm">Sistema de Posicionamiento Local para que tu negocio destaque en Google.</p>
@@ -337,7 +426,7 @@ export default function HomePage() {
             </ul>
           </div>
         </div>
-        <div className="relative z-10 border-t border-white/10 py-6 text-center text-xs">
+        <div className="border-t border-white/10 py-6 text-center text-xs">
           © {new Date().getFullYear()} {SITE.name} · McAllen, TX
         </div>
       </footer>
