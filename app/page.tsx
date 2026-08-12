@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { PLAN, VIDEOS, STEPS, PRODUCTS } from "@/lib/plan";
+import { PLAN, VIDEOS, STEPS, PRODUCTS, waLink } from "@/lib/plan";
+import MobileMenu from "@/components/MobileMenu";
+import Faq from "@/components/Faq";
 import { Icons, Stars } from "@/components/Icons";
 import Reveal from "@/components/Reveal";
 import LogoMarquee from "@/components/LogoMarquee";
@@ -111,12 +113,16 @@ export default function HomePage() {
           <nav className="hidden gap-8 text-sm font-medium text-slate-300 md:flex">
             <a href="#productos" className="transition hover:text-white">Productos</a>
             <a href="#como" className="transition hover:text-white">Cómo funciona</a>
+            <a href="#faq" className="transition hover:text-white">Preguntas</a>
             <a href="#precio" className="transition hover:text-white">Precio</a>
             <Link href="/blog" className="transition hover:text-white">Blog</Link>
           </nav>
-          <Link href="/pedido" className="press rounded-full bg-brand-green px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-brand-green/25 transition hover:bg-brand-greenDark">
-            Contratar
-          </Link>
+          <div className="flex items-center gap-2">
+            <a href={waLink()} target="_blank" rel="noopener noreferrer" className="press hidden rounded-full bg-brand-green px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-brand-green/25 transition hover:bg-brand-greenDark sm:inline-block">
+              Contratar
+            </a>
+            <MobileMenu />
+          </div>
         </div>
       </header>
 
@@ -139,10 +145,10 @@ export default function HomePage() {
               <strong className="text-white">aparecer primero en Google</strong>, conseguir reseñas, responder clientes y crecer.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Link href="/pedido" className="press group inline-flex items-center gap-2 rounded-full bg-brand-green px-7 py-3.5 font-bold text-white shadow-xl shadow-brand-green/30 transition hover:bg-brand-greenDark">
+              <a href={waLink(`Hola, quiero contratar el paquete de SEO Local de $${PLAN.price}.`)} target="_blank" rel="noopener noreferrer" className="press group inline-flex items-center gap-2 rounded-full bg-brand-green px-7 py-3.5 font-bold text-white shadow-xl shadow-brand-green/30 transition hover:bg-brand-greenDark">
                 Empezar por ${PLAN.price}
                 <span className="transition group-hover:translate-x-1">→</span>
-              </Link>
+              </a>
               <a href="#productos" className="press inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-3.5 font-bold text-white transition hover:bg-white/10">
                 Ver la plataforma
               </a>
@@ -244,9 +250,9 @@ export default function HomePage() {
           <Reveal className="mt-10 text-center">
             <div className="inline-flex flex-wrap items-center justify-center gap-4 rounded-2xl bg-brand-navy px-8 py-6 text-white">
               <span className="font-display text-lg font-bold">Todos los productos, un solo precio.</span>
-              <Link href="/pedido" className="press rounded-full bg-brand-green px-6 py-3 font-bold text-white transition hover:bg-brand-greenDark">
+              <a href={waLink(`Hola, quiero contratar el paquete de SEO Local de $${PLAN.price}.`)} target="_blank" rel="noopener noreferrer" className="press rounded-full bg-brand-green px-6 py-3 font-bold text-white transition hover:bg-brand-greenDark">
                 Empezar por ${PLAN.price} →
-              </Link>
+              </a>
             </div>
           </Reveal>
         </div>
@@ -399,8 +405,60 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ===== Comparación ===== */}
+      <section className="bg-slate-50 py-20">
+        <div className="container-x">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">La diferencia</span>
+            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">
+              Con nosotros vs. <span className="text-slate-400">por tu cuenta</span>
+            </h2>
+          </Reveal>
+          <Reveal className="mx-auto mt-12 max-w-3xl overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card">
+            <div className="grid grid-cols-2">
+              <div className="border-r border-slate-100 bg-brand-navy p-6 text-center text-white">
+                <div className="font-display text-lg font-bold">Con SEO<span className="text-brand-green">Local</span></div>
+              </div>
+              <div className="p-6 text-center">
+                <div className="font-display text-lg font-bold text-slate-400">Por tu cuenta</div>
+              </div>
+            </div>
+            {[
+              ["Apareces primero en Google", "Peleas por visibilidad"],
+              ["30 reseñas positivas gestionadas", "Pocas o ninguna reseña"],
+              ["Bot de WhatsApp 24/7", "Pierdes clientes fuera de horario"],
+              ["Web + videos + fotos incluidos", "Contratas todo por separado"],
+              ["Un solo pago de $599", "Gastas más y sin garantía"],
+            ].map(([si, no], i) => (
+              <div key={i} className="grid grid-cols-2 border-t border-slate-100">
+                <div className="flex items-center gap-2 border-r border-slate-100 p-4 text-sm text-slate-700">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-green-100 text-brand-greenDark"><Icons.check className="h-3 w-3" /></span>
+                  {si}
+                </div>
+                <div className="flex items-center gap-2 p-4 text-sm text-slate-400">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-400">✕</span>
+                  {no}
+                </div>
+              </div>
+            ))}
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ===== FAQ ===== */}
+      <section id="faq" className="py-20">
+        <div className="container-x">
+          <Reveal className="mx-auto mb-12 max-w-2xl text-center">
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Preguntas frecuentes</span>
+            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">¿Tienes dudas?</h2>
+            <p className="mt-3 text-slate-500">Resolvemos las preguntas más comunes antes de empezar.</p>
+          </Reveal>
+          <Reveal><Faq /></Reveal>
+        </div>
+      </section>
+
       {/* ===== Precio ===== */}
-      <section id="precio" className="py-20">
+      <section id="precio" className="bg-slate-50 py-20">
         <div className="container-x">
           <div className="mx-auto max-w-lg">
             <Reveal>
@@ -422,9 +480,9 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/pedido" className="press mt-8 block rounded-full bg-brand-green px-6 py-4 text-lg font-bold text-white shadow-lg shadow-brand-green/25 transition hover:bg-brand-greenDark">
+                <a href={waLink(`Hola, quiero contratar el paquete de SEO Local de $${PLAN.price}.`)} target="_blank" rel="noopener noreferrer" className="press mt-8 block rounded-full bg-brand-green px-6 py-4 text-lg font-bold text-white shadow-lg shadow-brand-green/25 transition hover:bg-brand-greenDark">
                   Quiero contratar ahora
-                </Link>
+                </a>
                 <p className="mt-3 text-xs text-slate-400">Sin mensualidades · Pago único</p>
               </div>
             </Reveal>
@@ -438,9 +496,9 @@ export default function HomePage() {
         <div className="container-x relative">
           <h2 className="font-display text-2xl font-black sm:text-3xl">Aparece primero. Destaca siempre. Crece sin límites.</h2>
           <p className="mt-2 text-lg text-green-50">¡Tu negocio merece ser encontrado!</p>
-          <Link href="/pedido" className="press mt-6 inline-block rounded-full bg-white px-8 py-3.5 font-bold text-brand-greenDark shadow-lg transition hover:bg-slate-100">
+          <a href={waLink()} target="_blank" rel="noopener noreferrer" className="press mt-6 inline-block rounded-full bg-white px-8 py-3.5 font-bold text-brand-greenDark shadow-lg transition hover:bg-slate-100">
             Empezar ahora →
-          </Link>
+          </a>
         </div>
       </section>
 

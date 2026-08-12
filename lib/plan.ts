@@ -1,3 +1,14 @@
+// Contacto de WhatsApp (usado en todos los botones y el botón flotante)
+export const WHATSAPP = {
+  number: "19564560161", // solo dígitos, con código de país
+  display: "+1 (956) 456-0161",
+};
+
+// Genera un enlace de WhatsApp con mensaje prellenado
+export function waLink(message = "Hola, quiero información sobre el servicio de SEO Local.") {
+  return `https://wa.me/${WHATSAPP.number}?text=${encodeURIComponent(message)}`;
+}
+
 // Definición del paquete de SEO Local basado en la oferta de $599
 export const PLAN = {
   id: "seo-local-599",
