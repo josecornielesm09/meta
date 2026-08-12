@@ -25,7 +25,7 @@ const TESTIMONIALS: Testimonial[] = [
   {
     name: "Lucía Fernández",
     role: "Salón Bella Vista",
-    text: "El blog automático mantiene mi negocio activo en Google sin que yo haga nada. Se nota muchísimo la diferencia.",
+    text: "El bot de WhatsApp responde a mis clientes al instante, incluso de noche. No pierdo ni una sola consulta.",
     avatar: "💇",
   },
   {

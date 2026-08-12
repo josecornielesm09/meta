@@ -33,7 +33,7 @@ function PhoneMock() {
               <div className="flex items-center gap-1 text-[11px]">
                 <span className="font-semibold text-slate-700">4.9</span>
                 <Stars className="h-3 w-3" />
-                <span className="text-slate-400">(50)</span>
+                <span className="text-slate-400">(30)</span>
               </div>
               <div className="text-[10px] text-slate-500">
                 Negocio local · <span className="text-brand-green">Abierto</span>
@@ -143,7 +143,7 @@ export default function HomePage() {
               </a>
             </div>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-400">
-              <span className="inline-flex items-center gap-1.5"><Stars className="h-4 w-4" /> 50 reseñas</span>
+              <span className="inline-flex items-center gap-1.5"><Stars className="h-4 w-4" /> 30 reseñas</span>
               <span className="hidden sm:inline">·</span>
               <span>Inversión única</span>
               <span className="hidden sm:inline">·</span>
@@ -165,7 +165,7 @@ export default function HomePage() {
         {/* franja de métricas */}
         <div className="relative border-t border-white/10 bg-white/[0.03]">
           <div className="container-x grid grid-cols-2 gap-4 py-8 text-center md:grid-cols-4">
-            {[["50+", "Reseñas positivas"], ["7", "Entregables incluidos"], ["24/7", "Blog con IA activo"], ["$599", "Pago único"]].map(([n, l]) => (
+            {[["30+", "Reseñas positivas"], ["7", "Entregables incluidos"], ["24/7", "Bot de WhatsApp"], ["$599", "Pago único"]].map(([n, l]) => (
               <div key={l}>
                 <div className="font-display text-3xl font-black text-white">{n}</div>
                 <div className="mt-1 text-sm text-slate-400">{l}</div>
