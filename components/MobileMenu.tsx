@@ -5,10 +5,7 @@ import { waLink } from "@/lib/plan";
 
 const LINKS = [
   { href: "#incluye", label: "Qué incluye" },
-  { href: "#sistema", label: "El sistema" },
-  { href: "#reputacion", label: "Reseñas" },
   { href: "#precio", label: "Precio" },
-  { href: "#faq", label: "Preguntas" },
 ];
 
 export default function MobileMenu() {
