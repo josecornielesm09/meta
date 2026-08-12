@@ -23,6 +23,7 @@ model Client {
   services      Service[]
   posts         BlogPost[]
   reviews       Review[]
+  messages      Message[]
 }
 
 // Tareas / entregables del paquete de $599
@@ -61,6 +62,18 @@ model Review {
   author    String
   rating    Int      @default(5)
   text      String
+  createdAt DateTime @default(now())
+}
+
+// Mensajes recibidos (LocalChat: WhatsApp / chat web)
+model Message {
+  id        String   @id @default(cuid())
+  clientId  String?
+  client    Client?  @relation(fields: [clientId], references: [id], onDelete: SetNull)
+  fromName  String
+  channel   String   @default("whatsapp") // whatsapp | web | sms
+  text      String
+  status    String   @default("nuevo") // nuevo | respondido
   createdAt DateTime @default(now())
 }
 
