@@ -16,12 +16,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "SEO Local Completo | Posiciona tu negocio en Google",
+  title: "Promociones El Valle 956 | Marketing local en McAllen, TX",
   description:
-    "Servicio completo de SEO Local para que tu negocio aparezca primero en Google. Google Business, web con SEO, bot de WhatsApp, reseñas y más por $599.",
+    "Promociones El Valle 956: posiciona tu negocio primero en Google. Google Business, web con SEO, bot de WhatsApp, reseñas y más. McAllen, TX.",
   openGraph: {
-    title: "Posiciona tu negocio en Google",
-    description: "Más visibilidad, más clientes, más ventas. SEO Local completo por $599.",
+    title: "Promociones El Valle 956 — Marketing local",
+    description: "Más visibilidad, más clientes, más ventas para tu negocio en McAllen, TX. Desde $599.",
     type: "website",
   },
 };

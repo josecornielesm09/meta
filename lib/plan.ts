@@ -1,3 +1,13 @@
+// Datos de la marca (rebranding Promociones El Valle 956)
+export const SITE = {
+  name: "Promociones El Valle 956",
+  short: "El Valle 956",
+  address: "McAllen, TX, United States",
+  instagram: "https://www.instagram.com/promocioneselvalle956",
+  facebook: "https://www.facebook.com/promocioneselvalle956",
+  logo: "/logo.svg", // reemplaza por /logo.png cuando subas tu logo real
+};
+
 // Contacto de WhatsApp (usado en todos los botones y el botón flotante)
 export const WHATSAPP = {
   number: "19564560161", // solo dígitos, con código de país

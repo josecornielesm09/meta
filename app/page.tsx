@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PLAN, VIDEOS, STEPS, PRODUCTS, waLink, WHATSAPP } from "@/lib/plan";
+import { PLAN, VIDEOS, STEPS, PRODUCTS, waLink, WHATSAPP, SITE } from "@/lib/plan";
 import MobileMenu from "@/components/MobileMenu";
 import Faq from "@/components/Faq";
 import { Icons, Stars } from "@/components/Icons";
@@ -106,10 +106,13 @@ export default function HomePage() {
     <main className="overflow-x-hidden">
       {/* ===== Header ===== */}
       <header className="glass-dark sticky top-0 z-50 border-b border-white/10">
-        <div className="container-x flex items-center justify-between py-3.5">
-          <span className="font-display text-xl font-extrabold tracking-tight text-white">
-            SEO<span className="text-brand-green">Local</span>
-          </span>
+        <div className="container-x flex items-center justify-between py-3">
+          <Link href="/" className="flex items-center gap-2.5">
+            <img src={SITE.logo} alt={SITE.name} className="h-11 w-auto" />
+            <span className="hidden font-display text-sm font-bold leading-tight text-white sm:block">
+              Promociones<br /><span className="text-brand-green">El Valle 956</span>
+            </span>
+          </Link>
           <nav className="hidden gap-8 text-sm font-medium text-slate-300 md:flex">
             <a href="#productos" className="transition hover:text-white">Productos</a>
             <a href="#como" className="transition hover:text-white">Cómo funciona</a>
@@ -417,7 +420,7 @@ export default function HomePage() {
           <Reveal className="mx-auto mt-12 max-w-3xl overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card">
             <div className="grid grid-cols-2">
               <div className="border-r border-slate-100 bg-brand-navy p-6 text-center text-white">
-                <div className="font-display text-lg font-bold">Con SEO<span className="text-brand-green">Local</span></div>
+                <div className="font-display text-lg font-bold">Con <span className="text-brand-green">El Valle 956</span></div>
               </div>
               <div className="p-6 text-center">
                 <div className="font-display text-lg font-bold text-slate-400">Por tu cuenta</div>
@@ -531,12 +534,23 @@ export default function HomePage() {
       <footer className="bg-brand-navy pt-14 text-slate-400">
         <div className="container-x grid gap-10 pb-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <span className="font-display text-lg font-extrabold text-white">SEO<span className="text-brand-green">Local</span></span>
+            <img src={SITE.logo} alt={SITE.name} className="h-14 w-auto" />
             <p className="mt-3 max-w-xs text-sm">La plataforma de marketing local todo-en-uno para que tu negocio crezca en Google.</p>
-            <a href={waLink()} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-2 text-sm font-bold text-white">
-              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22C17.5 21.84 22 17.4 22 11.94 22 6.48 17.5 2 12.04 2z" /></svg>
-              {WHATSAPP.display}
-            </a>
+            <p className="mt-3 flex items-center gap-2 text-sm">
+              <svg className="h-4 w-4 text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 21s-7-6.3-7-11a7 7 0 0114 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              {SITE.address}
+            </p>
+            <div className="mt-4 flex items-center gap-3">
+              <a href={waLink()} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="flex h-10 w-10 items-center justify-center rounded-full bg-[#25D366] text-white transition hover:scale-110">
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22C17.5 21.84 22 17.4 22 11.94 22 6.48 17.5 2 12.04 2z" /></svg>
+              </a>
+              <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 text-white transition hover:scale-110">
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
+              </a>
+              <a href={SITE.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1877f2] text-white transition hover:scale-110">
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.5V12h2.7l-.4 2.9h-2.3v7A10 10 0 0022 12z"/></svg>
+              </a>
+            </div>
           </div>
           <div>
             <div className="mb-3 text-sm font-bold text-white">Productos</div>
@@ -565,7 +579,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="border-t border-white/10 py-6 text-center text-xs">
-          © {new Date().getFullYear()} SEOLocal · Aparece primero en Google.
+          © {new Date().getFullYear()} {SITE.name} · McAllen, TX · Aparece primero en Google.
         </div>
       </footer>
     </main>

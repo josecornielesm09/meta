@@ -30,9 +30,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   return (
     <div className="flex min-h-screen bg-slate-50">
       <aside className="flex w-60 shrink-0 flex-col border-r border-slate-200 bg-white p-5">
-        <div className="mb-8 text-lg font-black text-brand-navy">
-          SEO<span className="text-brand-green">Local</span>
-          <span className="ml-2 rounded bg-green-100 px-1.5 py-0.5 text-[10px] font-bold text-brand-greenDark">Panel</span>
+        <div className="mb-8 flex items-center gap-2">
+          <img src="/logo.svg" alt="El Valle 956" className="h-9 w-auto" />
+          <span className="rounded bg-green-100 px-1.5 py-0.5 text-[10px] font-bold text-brand-greenDark">Panel</span>
         </div>
         <nav className="space-y-5 text-sm">
           {GROUPS.map((g) => (

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" width="320" height="200" role="img" aria-label="Promociones El Valle 956">
+  <defs>
+    <linearGradient id="steel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/><stop offset="0.5" stop-color="#cbd5e1"/><stop offset="1" stop-color="#94a3b8"/>
+    </linearGradient>
+  </defs>
+  <!-- escudo -->
+  <path d="M20 20 H300 V120 Q300 150 250 165 L160 190 L70 165 Q20 150 20 120 Z" fill="#0b0b0d" stroke="#3f3f46" stroke-width="4"/>
+  <path d="M20 20 H300 V120 Q300 150 250 165 L160 190 L70 165 Q20 150 20 120 Z" fill="none" stroke="#71717a" stroke-width="1.5" opacity="0.6"/>
+  <!-- PROMOCIONES -->
+  <g fill="#e5e7eb">
+    <text x="160" y="52" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="20" letter-spacing="3">PROMOCIONES</text>
+  </g>
+  <text x="70" y="52" text-anchor="middle" fill="#ef4444" font-size="16">★</text>
+  <text x="250" y="52" text-anchor="middle" fill="#ef4444" font-size="16">★</text>
+  <!-- EL VALLE -->
+  <text x="160" y="108" text-anchor="middle" fill="url(#steel)" stroke="#1f2937" stroke-width="1" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="52" letter-spacing="1">EL VALLE</text>
+  <!-- barras rojo/azul -->
+  <rect x="60" y="120" width="200" height="6" fill="#ef4444"/>
+  <rect x="60" y="128" width="200" height="4" fill="#1e3a8a"/>
+  <!-- 956 -->
+  <text x="160" y="160" text-anchor="middle" fill="#dc2626" stroke="#0b0b0d" stroke-width="1.5" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="40" letter-spacing="2">956</text>
+  <!-- Texas -->
+  <text x="160" y="185" text-anchor="middle" fill="#e5e7eb" font-size="14">TEXAS ★</text>
+</svg>
