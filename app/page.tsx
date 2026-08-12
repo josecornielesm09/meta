@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PLAN, VIDEOS, STEPS, PRODUCTS, waLink } from "@/lib/plan";
+import { PLAN, VIDEOS, STEPS, PRODUCTS, waLink, WHATSAPP } from "@/lib/plan";
 import MobileMenu from "@/components/MobileMenu";
 import Faq from "@/components/Faq";
 import { Icons, Stars } from "@/components/Icons";
@@ -460,16 +460,26 @@ export default function HomePage() {
       {/* ===== Precio ===== */}
       <section id="precio" className="bg-slate-50 py-20">
         <div className="container-x">
-          <div className="mx-auto max-w-lg">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Precio simple</span>
+            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">Un solo precio, todo incluido</h2>
+            <p className="mt-3 text-slate-500">Sin mensualidades, sin letras chiquitas. Pagas una vez y es tuyo.</p>
+          </Reveal>
+
+          <div className="mx-auto mt-12 max-w-lg">
             <Reveal>
-              <div className="relative overflow-hidden rounded-3xl border-2 border-brand-green bg-white p-8 text-center shadow-soft sm:p-10">
+              <div className="relative overflow-hidden rounded-3xl border-2 border-brand-green bg-white p-8 shadow-soft sm:p-10">
                 <div className="absolute right-0 top-0 rounded-bl-2xl bg-brand-green px-4 py-1.5 text-xs font-bold uppercase text-white">Oferta completa</div>
-                <p className="text-sm font-bold uppercase tracking-widest text-brand-green">Todo por solo</p>
-                <div className="mt-2 flex items-start justify-center">
-                  <span className="mt-3 font-display text-3xl font-bold text-brand-navy">$</span>
-                  <span className="font-display text-7xl font-black leading-none text-brand-navy">{PLAN.price}</span>
+                <div className="text-center">
+                  <p className="text-sm font-bold uppercase tracking-widest text-brand-green">Todo por solo</p>
+                  <div className="mt-2 flex items-start justify-center">
+                    <span className="mt-3 font-display text-3xl font-bold text-brand-navy">$</span>
+                    <span className="font-display text-7xl font-black leading-none text-brand-navy">{PLAN.price}</span>
+                    <span className="mt-4 ml-2 text-left text-sm text-slate-400 line-through">$1,200</span>
+                  </div>
+                  <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-slate-400">{PLAN.billing}</p>
                 </div>
-                <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-slate-400">{PLAN.billing}</p>
+
                 <ul className="mx-auto mt-8 max-w-sm space-y-2.5 text-left">
                   {PLAN.features.map((f) => (
                     <li key={f.id} className="flex items-start gap-3 text-sm text-slate-700">
@@ -480,10 +490,25 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
-                <a href={waLink(`Hola, quiero contratar el paquete de SEO Local de $${PLAN.price}.`)} target="_blank" rel="noopener noreferrer" className="press mt-8 block rounded-full bg-brand-green px-6 py-4 text-lg font-bold text-white shadow-lg shadow-brand-green/25 transition hover:bg-brand-greenDark">
+
+                {/* bonos */}
+                <div className="mx-auto mt-6 max-w-sm rounded-2xl bg-slate-50 p-4">
+                  <div className="text-xs font-bold uppercase tracking-wide text-brand-green">🎁 Bonos incluidos</div>
+                  <ul className="mt-2 space-y-1.5 text-sm text-slate-600">
+                    <li>✓ Configuración completa, lista para usar</li>
+                    <li>✓ Soporte por WhatsApp durante el proceso</li>
+                    <li>✓ Panel para ver tus resultados</li>
+                  </ul>
+                </div>
+
+                <a href={waLink(`Hola, quiero contratar el paquete de SEO Local de $${PLAN.price}.`)} target="_blank" rel="noopener noreferrer" className="press mt-8 block rounded-full bg-brand-green px-6 py-4 text-center text-lg font-bold text-white shadow-lg shadow-brand-green/25 transition hover:bg-brand-greenDark">
                   Quiero contratar ahora
                 </a>
-                <p className="mt-3 text-xs text-slate-400">Sin mensualidades · Pago único</p>
+
+                <div className="mt-4 flex items-center justify-center gap-2 text-xs text-slate-500">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-green-100 text-brand-greenDark"><Icons.check className="h-3 w-3" /></span>
+                  Garantía de satisfacción · Pago único · Sin mensualidades
+                </div>
               </div>
             </Reveal>
           </div>
@@ -503,15 +528,44 @@ export default function HomePage() {
       </section>
 
       {/* ===== Footer ===== */}
-      <footer className="bg-brand-navy py-10 text-center text-slate-400">
-        <div className="container-x">
-          <span className="font-display text-lg font-extrabold text-white">
-            SEO<span className="text-brand-green">Local</span>
-          </span>
-          <p className="mt-2 text-sm">Posiciona tu negocio en Google y crece sin límites.</p>
-          <p className="mt-4 text-xs">
-            <Link href="/dashboard" className="underline transition hover:text-white">Acceso panel de administración</Link>
-          </p>
+      <footer className="bg-brand-navy pt-14 text-slate-400">
+        <div className="container-x grid gap-10 pb-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <span className="font-display text-lg font-extrabold text-white">SEO<span className="text-brand-green">Local</span></span>
+            <p className="mt-3 max-w-xs text-sm">La plataforma de marketing local todo-en-uno para que tu negocio crezca en Google.</p>
+            <a href={waLink()} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-2 text-sm font-bold text-white">
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22C17.5 21.84 22 17.4 22 11.94 22 6.48 17.5 2 12.04 2z" /></svg>
+              {WHATSAPP.display}
+            </a>
+          </div>
+          <div>
+            <div className="mb-3 text-sm font-bold text-white">Productos</div>
+            <ul className="space-y-2 text-sm">
+              {PRODUCTS.slice(0, 5).map((p) => (
+                <li key={p.id}><a href="#productos" className="transition hover:text-white">{p.name}</a></li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <div className="mb-3 text-sm font-bold text-white">Enlaces</div>
+            <ul className="space-y-2 text-sm">
+              <li><a href="#como" className="transition hover:text-white">Cómo funciona</a></li>
+              <li><a href="#faq" className="transition hover:text-white">Preguntas frecuentes</a></li>
+              <li><a href="#precio" className="transition hover:text-white">Precio</a></li>
+              <li><Link href="/blog" className="transition hover:text-white">Blog</Link></li>
+            </ul>
+          </div>
+          <div>
+            <div className="mb-3 text-sm font-bold text-white">Contacto</div>
+            <ul className="space-y-2 text-sm">
+              <li><a href={waLink()} target="_blank" rel="noopener noreferrer" className="transition hover:text-white">WhatsApp: {WHATSAPP.display}</a></li>
+              <li><a href="/pedido" className="transition hover:text-white">Formulario de contacto</a></li>
+              <li><Link href="/dashboard" className="transition hover:text-white">Panel de administración</Link></li>
+            </ul>
+          </div>
+        </div>
+        <div className="border-t border-white/10 py-6 text-center text-xs">
+          © {new Date().getFullYear()} SEOLocal · Aparece primero en Google.
         </div>
       </footer>
     </main>
