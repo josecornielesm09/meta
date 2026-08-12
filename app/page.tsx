@@ -1,5 +1,8 @@
 import Link from "next/link";
 import { PLAN } from "@/lib/plan";
+import Reveal from "@/components/Reveal";
+import LogoMarquee from "@/components/LogoMarquee";
+import TestimonialsSlider from "@/components/TestimonialsSlider";
 
 const GoogleWord = () => (
   <span className="whitespace-nowrap">
@@ -148,10 +151,20 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ===== Logos de empresas que confían ===== */}
+      <section className="py-14">
+        <div className="container-x">
+          <p className="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-slate-400">
+            Negocios que ya confían en nosotros
+          </p>
+          <LogoMarquee />
+        </div>
+      </section>
+
       {/* ===== Servicios ===== */}
       <section id="servicios" className="py-20">
         <div className="container-x">
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <span className="text-sm font-bold uppercase tracking-widest text-brand-green">
               Todo incluido
             </span>
@@ -161,25 +174,44 @@ export default function HomePage() {
             <p className="mt-3 text-slate-500">
               Un paquete completo para dominar las búsquedas locales de tu zona.
             </p>
-          </div>
+          </Reveal>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {PLAN.features.map((f, i) => (
-              <div
-                key={f.title}
-                className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-card transition hover:-translate-y-1 hover:border-brand-green/40 hover:shadow-soft"
-              >
-                <div className="absolute right-4 top-4 text-6xl font-black text-slate-50 transition group-hover:text-green-50">
-                  {String(i + 1).padStart(2, "0")}
+              <Reveal key={f.title} delay={(i % 3) * 100}>
+                <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-card transition hover:-translate-y-1 hover:border-brand-green/40 hover:shadow-soft">
+                  <div className="absolute right-4 top-4 text-6xl font-black text-slate-50 transition group-hover:text-green-50">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+                  <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-blue/10 to-brand-green/10 text-2xl">
+                    {f.icon}
+                  </div>
+                  <h3 className="relative mt-4 text-lg font-bold text-brand-navy">{f.title}</h3>
+                  <p className="relative mt-1.5 text-sm leading-relaxed text-slate-600">{f.desc}</p>
                 </div>
-                <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-blue/10 to-brand-green/10 text-2xl">
-                  {f.icon}
-                </div>
-                <h3 className="relative mt-4 text-lg font-bold text-brand-navy">{f.title}</h3>
-                <p className="relative mt-1.5 text-sm leading-relaxed text-slate-600">{f.desc}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ===== Testimonios (slider) ===== */}
+      <section className="bg-slate-50 py-20">
+        <div className="container-x">
+          <Reveal className="mx-auto mb-12 max-w-2xl text-center">
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">
+              Testimonios
+            </span>
+            <h2 className="mt-2 text-3xl font-black text-brand-navy sm:text-4xl">
+              Lo que dicen nuestros clientes
+            </h2>
+            <p className="mt-3 text-slate-500">
+              Negocios reales que hoy aparecen primero en Google.
+            </p>
+          </Reveal>
+          <Reveal>
+            <TestimonialsSlider />
+          </Reveal>
         </div>
       </section>
 
@@ -207,7 +239,9 @@ export default function HomePage() {
           </div>
           <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur">
             <div className="flex items-center gap-3">
-              <span className="text-4xl">G</span>
+              <span className="text-4xl font-black">
+                <span className="text-brand-blue">G</span>
+              </span>
               <div>
                 <div className="text-yellow-400">★★★★★</div>
                 <div className="font-bold">50 reseñas positivas</div>
@@ -216,17 +250,23 @@ export default function HomePage() {
             <p className="mt-4 text-slate-300">
               Impulsa tu reputación y genera confianza en nuevos clientes desde el primer día.
             </p>
-            <div className="mt-6 space-y-3">
+            <div className="mt-6 grid grid-cols-3 gap-3 text-center">
               {[
-                ["María G.", "¡Excelente servicio! Muy recomendados."],
-                ["Carlos R.", "Ahora aparezco primero cuando buscan mi rubro."],
-              ].map(([name, text]) => (
-                <div key={name} className="rounded-xl bg-white/5 p-4">
-                  <div className="text-yellow-400 text-sm">★★★★★</div>
-                  <p className="mt-1 text-sm text-slate-200">“{text}”</p>
-                  <div className="mt-1 text-xs text-slate-400">— {name}</div>
+                ["+300%", "Visibilidad"],
+                ["+150%", "Llamadas"],
+                ["#1", "En el mapa"],
+              ].map(([n, l]) => (
+                <div key={l} className="rounded-xl bg-white/5 p-4">
+                  <div className="text-2xl font-black text-brand-green">{n}</div>
+                  <div className="mt-1 text-xs text-slate-300">{l}</div>
                 </div>
               ))}
+            </div>
+            <div className="mt-6 rounded-xl bg-white/5 p-4">
+              <div className="text-sm text-yellow-400">★★★★★</div>
+              <p className="mt-1 text-sm text-slate-200">
+                “¡Excelente servicio! Muy recomendados. Ahora nos encuentran fácil.”
+              </p>
             </div>
           </div>
         </div>
