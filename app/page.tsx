@@ -7,6 +7,9 @@ import PanelMock from "@/components/PanelMock";
 import ContentSlider from "@/components/ContentSlider";
 import Media from "@/components/Media";
 import MobileMenu from "@/components/MobileMenu";
+import TypingGoogle from "@/components/TypingGoogle";
+import MouseGlow from "@/components/MouseGlow";
+import ReviewsSlider from "@/components/ReviewsSlider";
 
 const GoogleWord = () => (
   <span className="whitespace-nowrap font-display">
@@ -29,8 +32,9 @@ export default function HomePage() {
   return (
     <main className="overflow-x-hidden pb-16 sm:pb-0">
       {/* ===== Header ===== */}
-      <header className="glass-dark sticky top-0 z-50 border-b border-white/10">
-        <div className="container-x flex items-center justify-between py-3">
+      <header className="glass-dark sticky top-0 z-50 overflow-hidden border-b border-white/10">
+        <MouseGlow color="rgba(22,163,74,0.35)" size={220} />
+        <div className="container-x relative z-10 flex items-center justify-between py-3">
           <Link href="/" className="flex items-center gap-2.5">
             <img src={SITE.logo} alt={SITE.name} className="h-11 w-auto" />
             <span className="hidden font-display text-sm font-bold leading-tight text-white sm:block">
@@ -62,7 +66,7 @@ export default function HomePage() {
               <span className="h-2 w-2 animate-pulse rounded-full bg-brand-green" /> Sistema de Posicionamiento Local · Negocios locales
             </span>
             <h1 className="mt-5 font-display text-3xl font-black leading-[1.08] sm:text-4xl lg:text-5xl">
-              Haz que más clientes encuentren tu negocio en <GoogleWord />
+              Haz que más clientes encuentren tu negocio en <TypingGoogle />
             </h1>
             <p className="mt-4 max-w-lg text-base leading-relaxed text-slate-300 sm:text-lg">
               Optimiza la presencia de tu negocio con Google Business, una página web preparada para SEO, contenido profesional y una estrategia para fortalecer tu reputación en Google.
@@ -219,6 +223,17 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ===== Reseñas (slider) ===== */}
+      <section className="py-12 sm:py-16">
+        <div className="container-x">
+          <Reveal className="mx-auto mb-8 max-w-2xl text-center">
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Testimonios</span>
+            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">Lo que dicen nuestros clientes</h2>
+          </Reveal>
+          <Reveal><ReviewsSlider /></Reveal>
+        </div>
+      </section>
+
       {/* ===== Precio ===== */}
       <section id="precio" className="bg-slate-50 py-12 sm:py-16">
         <div className="container-x">
@@ -274,8 +289,9 @@ export default function HomePage() {
       </section>
 
       {/* ===== Footer ===== */}
-      <footer className="bg-brand-navy pt-14 text-slate-400">
-        <div className="container-x grid gap-10 pb-10 sm:grid-cols-2 lg:grid-cols-4">
+      <footer className="relative overflow-hidden bg-brand-navy pt-14 text-slate-400">
+        <MouseGlow color="rgba(26,115,232,0.3)" size={320} />
+        <div className="container-x relative z-10 grid gap-10 pb-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <img src={SITE.logo} alt={SITE.name} className="h-14 w-auto" />
             <p className="mt-3 max-w-xs text-sm">Sistema de Posicionamiento Local para que tu negocio destaque en Google.</p>
@@ -321,7 +337,7 @@ export default function HomePage() {
             </ul>
           </div>
         </div>
-        <div className="border-t border-white/10 py-6 text-center text-xs">
+        <div className="relative z-10 border-t border-white/10 py-6 text-center text-xs">
           © {new Date().getFullYear()} {SITE.name} · McAllen, TX
         </div>
       </footer>
