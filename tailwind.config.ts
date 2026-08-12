@@ -1,6 +1,9 @@
 import type { Config } from "tailwindcss";
 const config: Config = {
-  content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
+  content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./lib/**/*.{ts,tsx}"],
+  safelist: [
+    { pattern: /(from|to)-(blue|violet|indigo|cyan|sky|green|emerald|rose|red|amber|orange|yellow|fuchsia|purple|teal|slate)-(400|500|600)/ },
+  ],
   theme: {
     extend: {
       fontFamily: {

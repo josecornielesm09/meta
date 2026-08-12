@@ -206,11 +206,18 @@ export default function HomePage() {
               const Icon = Icons[p.icon] ?? Icons.check;
               return (
                 <Reveal key={p.id} delay={(i % 4) * 80}>
-                  <div className="group spring flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white hover:-translate-y-1.5 hover:border-brand-green/40 hover:shadow-soft">
-                    <div className={`relative flex h-28 items-center justify-center bg-gradient-to-br ${p.color}`}>
-                      <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 20% 20%, #fff 1px, transparent 1px)", backgroundSize: "16px 16px" }} />
-                      <Icon className="h-11 w-11 text-white drop-shadow transition duration-500 group-hover:scale-110" />
-                      <Icon className="pointer-events-none absolute -bottom-3 -right-2 h-20 w-20 text-white/10" />
+                  <div className="group spring relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white hover:-translate-y-2 hover:border-transparent hover:shadow-soft">
+                    {/* cabecera con degradado */}
+                    <div className={`relative flex h-28 items-center justify-center overflow-hidden bg-gradient-to-br ${p.color}`}>
+                      <div className="absolute inset-0 opacity-25" style={{ backgroundImage: "radial-gradient(circle at 25% 25%, #fff 1.5px, transparent 1.5px)", backgroundSize: "18px 18px" }} />
+                      {/* brillo que barre al pasar el mouse */}
+                      <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                      {/* icono grande decorativo de fondo */}
+                      <Icon className="pointer-events-none absolute -bottom-4 -right-3 h-24 w-24 text-white/15 transition-transform duration-700 group-hover:rotate-6" />
+                      {/* icono principal en círculo de vidrio */}
+                      <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-white/25 backdrop-blur-sm ring-1 ring-white/40 transition duration-500 group-hover:scale-110 group-hover:bg-white/35">
+                        <Icon className="h-7 w-7 text-white drop-shadow" />
+                      </div>
                     </div>
                     <div className="flex flex-1 flex-col p-5">
                       <h3 className="font-display text-lg font-bold text-brand-navy">{p.name}</h3>
@@ -224,6 +231,9 @@ export default function HomePage() {
                           </li>
                         ))}
                       </ul>
+                      <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-brand-green opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                        Saber más →
+                      </span>
                     </div>
                   </div>
                 </Reveal>
