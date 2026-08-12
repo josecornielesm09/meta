@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-// Muestra una imagen desde /public. Si el archivo no existe todavía,
-// muestra el contenido de respaldo (fallback) para que nunca se vea roto.
+// Muestra una imagen desde /public SOLO si carga correctamente.
+// Mientras no exista el archivo, muestra el respaldo (fallback) sin imágenes rotas.
 export default function Media({
   src,
   alt,
@@ -15,8 +15,20 @@ export default function Media({
   className?: string;
   fallback?: React.ReactNode;
 }) {
-  const [failed, setFailed] = useState(false);
-  if (failed) return <>{fallback}</>;
+  const [ok, setOk] = useState(false);
+
+  useEffect(() => {
+    let active = true;
+    const img = new window.Image();
+    img.onload = () => active && setOk(true);
+    img.onerror = () => active && setOk(false);
+    img.src = src;
+    return () => {
+      active = false;
+    };
+  }, [src]);
+
+  if (!ok) return <>{fallback}</>;
   // eslint-disable-next-line @next/next/no-img-element
-  return <img src={src} alt={alt} loading="lazy" className={className} onError={() => setFailed(true)} />;
+  return <img src={src} alt={alt} loading="lazy" className={className} />;
 }

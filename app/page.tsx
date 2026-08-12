@@ -10,6 +10,7 @@ import ShowcaseMock from "@/components/ShowcaseMock";
 import StackedReviews from "@/components/StackedReviews";
 import MapCard from "@/components/MapCard";
 import Media from "@/components/Media";
+import ResumenStrip from "@/components/ResumenStrip";
 import MobileMenu from "@/components/MobileMenu";
 import Faq from "@/components/Faq";
 
@@ -106,10 +107,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== 2. Prueba / confianza ===== */}
+      {/* ===== 2. Prueba / confianza + resumen visual ===== */}
       <section className="bg-white py-12">
         <div className="container-x">
-          <p className="mb-6 text-center text-sm font-semibold uppercase tracking-widest text-slate-400">
+          <Reveal><ResumenStrip /></Reveal>
+          <p className="mb-6 mt-12 text-center text-sm font-semibold uppercase tracking-widest text-slate-400">
             Negocios locales que confían en nosotros
           </p>
           <LogoMarquee />
