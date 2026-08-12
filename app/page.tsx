@@ -98,7 +98,7 @@ export default function HomePage() {
   return (
     <main className="overflow-x-hidden">
       {/* ===== Header ===== */}
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-brand-navy/95 backdrop-blur">
+      <header className="glass-dark sticky top-0 z-50 border-b border-white/10">
         <div className="container-x flex items-center justify-between py-3.5">
           <span className="font-display text-xl font-extrabold tracking-tight text-white">
             SEO<span className="text-brand-green">Local</span>
@@ -109,7 +109,7 @@ export default function HomePage() {
             <a href="#precio" className="transition hover:text-white">Precio</a>
             <Link href="/blog" className="transition hover:text-white">Blog</Link>
           </nav>
-          <Link href="/pedido" className="rounded-full bg-brand-green px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-brand-green/25 transition hover:bg-brand-greenDark">
+          <Link href="/pedido" className="press rounded-full bg-brand-green px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-brand-green/25 transition hover:bg-brand-greenDark">
             Contratar
           </Link>
         </div>
@@ -134,11 +134,11 @@ export default function HomePage() {
               <strong className="text-white">aparezca primero en Google</strong> y destaque sobre la competencia.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Link href="/pedido" className="group inline-flex items-center gap-2 rounded-full bg-brand-green px-7 py-3.5 font-bold text-white shadow-xl shadow-brand-green/30 transition hover:bg-brand-greenDark">
+              <Link href="/pedido" className="press group inline-flex items-center gap-2 rounded-full bg-brand-green px-7 py-3.5 font-bold text-white shadow-xl shadow-brand-green/30 transition hover:bg-brand-greenDark">
                 Contratar por ${PLAN.price}
                 <span className="transition group-hover:translate-x-1">→</span>
               </Link>
-              <a href="#servicios" className="inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-3.5 font-bold text-white transition hover:bg-white/10">
+              <a href="#servicios" className="press inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-3.5 font-bold text-white transition hover:bg-white/10">
                 Ver qué incluye
               </a>
             </div>
@@ -201,8 +201,8 @@ export default function HomePage() {
               const Icon = Icons[f.id] ?? Icons.check;
               return (
                 <Reveal key={f.id} delay={(i % 3) * 90}>
-                  <div className="group h-full rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-brand-green/40 hover:shadow-soft">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-navy text-brand-green transition group-hover:bg-brand-green group-hover:text-white">
+                  <div className="group spring h-full rounded-2xl border border-slate-200 bg-white p-6 hover:-translate-y-1.5 hover:border-brand-green/40 hover:shadow-soft">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-navy text-brand-green transition duration-300 group-hover:scale-110 group-hover:bg-brand-green group-hover:text-white">
                       <Icon className="h-6 w-6" />
                     </div>
                     <h3 className="mt-4 font-display text-lg font-bold text-brand-navy">{f.title}</h3>
@@ -218,7 +218,7 @@ export default function HomePage() {
                 <p className="mt-2 text-sm text-green-50">
                   Todos los servicios que necesitas para dominar Google, en un solo paquete.
                 </p>
-                <Link href="/pedido" className="mt-4 inline-flex w-fit items-center gap-1 rounded-full bg-white px-4 py-2 text-sm font-bold text-brand-greenDark">
+                <Link href="/pedido" className="press mt-4 inline-flex w-fit items-center gap-1 rounded-full bg-white px-4 py-2 text-sm font-bold text-brand-greenDark">
                   Empezar →
                 </Link>
               </div>
@@ -238,7 +238,7 @@ export default function HomePage() {
           <div className="mt-12 grid gap-6 md:grid-cols-4">
             {STEPS.map((s, i) => (
               <Reveal key={s.n} delay={i * 90}>
-                <div className="relative h-full rounded-2xl border border-slate-200 bg-white p-6">
+                <div className="spring relative h-full rounded-2xl border border-slate-200 bg-white p-6 hover:-translate-y-1 hover:shadow-card">
                   <div className="font-display text-4xl font-black text-slate-100">{s.n}</div>
                   <h3 className="mt-2 font-display text-lg font-bold text-brand-navy">{s.title}</h3>
                   <p className="mt-1.5 text-sm text-slate-600">{s.desc}</p>
@@ -260,9 +260,9 @@ export default function HomePage() {
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {VIDEOS.map((v, i) => (
               <Reveal key={v.title} delay={i * 90}>
-                <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-slate-700 to-slate-900">
+                <div className="group spring relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-slate-700 to-slate-900 hover:-translate-y-1">
                   <div className="flex aspect-video items-center justify-center">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 text-brand-navy shadow-lg transition group-hover:scale-110">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 text-brand-navy shadow-lg transition duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110">
                       <svg className="ml-1 h-7 w-7" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
                     </div>
                     <span className="absolute bottom-3 right-3 rounded bg-black/50 px-2 py-0.5 text-xs">{v.duration}</span>
@@ -313,7 +313,7 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/pedido" className="mt-8 block rounded-full bg-brand-green px-6 py-4 text-lg font-bold text-white shadow-lg shadow-brand-green/25 transition hover:bg-brand-greenDark">
+                <Link href="/pedido" className="press mt-8 block rounded-full bg-brand-green px-6 py-4 text-lg font-bold text-white shadow-lg shadow-brand-green/25 transition hover:bg-brand-greenDark">
                   Quiero contratar ahora
                 </Link>
                 <p className="mt-3 text-xs text-slate-400">Sin mensualidades · Pago único</p>
@@ -329,7 +329,7 @@ export default function HomePage() {
         <div className="container-x relative">
           <h2 className="font-display text-2xl font-black sm:text-3xl">Aparece primero. Destaca siempre. Crece sin límites.</h2>
           <p className="mt-2 text-lg text-green-50">¡Tu negocio merece ser encontrado!</p>
-          <Link href="/pedido" className="mt-6 inline-block rounded-full bg-white px-8 py-3.5 font-bold text-brand-greenDark shadow-lg transition hover:bg-slate-100">
+          <Link href="/pedido" className="press mt-6 inline-block rounded-full bg-white px-8 py-3.5 font-bold text-brand-greenDark shadow-lg transition hover:bg-slate-100">
             Empezar ahora →
           </Link>
         </div>
