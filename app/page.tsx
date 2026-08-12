@@ -10,7 +10,7 @@ import ContentSlider from "@/components/ContentSlider";
 import StackedReviews from "@/components/StackedReviews";
 import MapCard from "@/components/MapCard";
 import Media from "@/components/Media";
-import ResumenStrip from "@/components/ResumenStrip";
+import Ecosistema from "@/components/Ecosistema";
 import MobileMenu from "@/components/MobileMenu";
 import Faq from "@/components/Faq";
 import TypingGoogle from "@/components/TypingGoogle";
@@ -111,7 +111,12 @@ export default function HomePage() {
       {/* ===== 2. Prueba / confianza + resumen visual ===== */}
       <section className="bg-white py-12">
         <div className="container-x">
-          <Reveal><ResumenStrip /></Reveal>
+          <Reveal className="mx-auto mb-4 max-w-3xl text-center">
+            <h2 className="font-display text-2xl font-black text-brand-navy sm:text-3xl">
+              Todo en un solo ecosistema para <span className="text-brand-blue">más visibilidad</span> y más clientes
+            </h2>
+          </Reveal>
+          <Reveal><Ecosistema /></Reveal>
           <p className="mb-6 mt-12 text-center text-sm font-semibold uppercase tracking-widest text-slate-400">
             Negocios locales que confían en nosotros
           </p>
@@ -173,7 +178,8 @@ export default function HomePage() {
               const last = i === SYSTEM.length - 1;
               return (
                 <Reveal key={s.label} delay={i * 90} className="md:contents">
-                  <div className={`flex items-center gap-3 rounded-2xl border p-4 md:w-36 md:flex-col md:text-center ${last ? "border-brand-green bg-red-50" : "border-slate-200 bg-white"}`}>
+                  <div className={`relative flex items-center gap-3 rounded-2xl border p-4 md:w-36 md:flex-col md:text-center ${last ? "border-brand-green bg-red-50" : "border-slate-200 bg-white"}`}>
+                    <span className={`absolute left-2 top-2 flex h-5 w-5 items-center justify-center rounded-full text-[11px] font-black md:left-1/2 md:-top-2.5 md:-translate-x-1/2 ${last ? "bg-brand-green text-white" : "bg-brand-navy text-white"}`}>{i + 1}</span>
                     <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${last ? "bg-brand-green text-white" : "bg-brand-navy text-brand-green"}`}>
                       <Icon className="h-6 w-6" />
                     </div>
