@@ -12,11 +12,12 @@ const config: Config = {
       },
       colors: {
         brand: {
-          navy: "#0b1f3a",
-          blue: "#1a73e8",
-          green: "#16a34a",
-          greenDark: "#15803d",
-          red: "#ea4335",
+          navy: "#0a1420",     // base casi negra, tipo el logo
+          blue: "#1d4ed8",     // azul del logo
+          // "green" se remapea al ROJO del logo para reutilizar todas las clases existentes
+          green: "#dc2626",    // rojo principal (acento/CTA)
+          greenDark: "#b91c1c",
+          red: "#dc2626",
           yellow: "#fbbc05",
         },
       },

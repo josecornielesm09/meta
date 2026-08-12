@@ -72,7 +72,7 @@ export default function SerpMock() {
           {/* etiqueta de página */}
           <div className="mt-3 flex items-center justify-between">
             <span className="text-xs font-semibold text-slate-400">Resultados locales</span>
-            <span className={`rounded-full px-2.5 py-1 text-[11px] font-bold transition-colors duration-500 ${after ? "bg-green-100 text-brand-greenDark" : "bg-red-100 text-red-600"}`}>
+            <span className={`rounded-full px-2.5 py-1 text-[11px] font-bold transition-colors duration-500 ${after ? "bg-red-100 text-brand-greenDark" : "bg-red-100 text-red-600"}`}>
               {after ? "Tú · Página 1 ✓" : "Tú · Página 2 ✗"}
             </span>
           </div>
@@ -90,7 +90,7 @@ export default function SerpMock() {
           <div className="mt-3 space-y-1.5">
             {list.map((b, i) => (
               <div key={b.name + i}
-                className={`flex items-center justify-between rounded-xl border px-3 py-2.5 transition-all duration-500 ${b.you ? "border-brand-green bg-green-50 shadow-sm" : "border-slate-100"}`}>
+                className={`flex items-center justify-between rounded-xl border px-3 py-2.5 transition-all duration-500 ${b.you ? "border-brand-green bg-red-50 shadow-sm" : "border-slate-100"}`}>
                 <div className="min-w-0">
                   <div className="flex items-center gap-2">
                     <span className={`truncate text-sm font-semibold ${b.you ? "text-brand-greenDark" : "text-slate-700"}`}>{b.name}</span>

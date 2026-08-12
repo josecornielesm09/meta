@@ -48,7 +48,7 @@ export default function ResumenStrip() {
       </div>
 
       {/* Resultado */}
-      <div className="spring col-span-2 flex flex-col justify-center rounded-2xl bg-gradient-to-br from-brand-green to-emerald-600 p-4 text-white hover:-translate-y-1 sm:col-span-1">
+      <div className="spring col-span-2 flex flex-col justify-center rounded-2xl bg-gradient-to-br from-brand-green to-red-600 p-4 text-white hover:-translate-y-1 sm:col-span-1">
         <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 17l6-6 4 4 8-8" /><path d="M17 7h4v4" /></svg>
         <div className="mt-2 text-sm font-bold leading-tight">Más visibilidad, más llamadas y mensajes</div>
       </div>

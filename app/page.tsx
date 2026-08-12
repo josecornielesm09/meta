@@ -173,7 +173,7 @@ export default function HomePage() {
               const last = i === SYSTEM.length - 1;
               return (
                 <Reveal key={s.label} delay={i * 90} className="md:contents">
-                  <div className={`flex items-center gap-3 rounded-2xl border p-4 md:w-36 md:flex-col md:text-center ${last ? "border-brand-green bg-green-50" : "border-slate-200 bg-white"}`}>
+                  <div className={`flex items-center gap-3 rounded-2xl border p-4 md:w-36 md:flex-col md:text-center ${last ? "border-brand-green bg-red-50" : "border-slate-200 bg-white"}`}>
                     <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${last ? "bg-brand-green text-white" : "bg-brand-navy text-brand-green"}`}>
                       <Icon className="h-6 w-6" />
                     </div>
@@ -213,7 +213,7 @@ export default function HomePage() {
                 <ul className="space-y-2.5">
                   {AFTER.map((t) => (
                     <li key={t} className="flex items-center gap-3 text-sm font-medium text-slate-700">
-                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-green-100 text-brand-greenDark"><Icons.check className="h-3 w-3" /></span>{t}
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-red-100 text-brand-greenDark"><Icons.check className="h-3 w-3" /></span>{t}
                     </li>
                   ))}
                 </ul>
@@ -336,7 +336,7 @@ export default function HomePage() {
                 <ul className="mx-auto mt-8 max-w-sm space-y-2.5 text-left">
                   {PLAN.features.map((f) => (
                     <li key={f.id} className="flex items-start gap-3 text-sm text-slate-700">
-                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-green-100 text-brand-greenDark"><Icons.check className="h-3 w-3" /></span>
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-red-100 text-brand-greenDark"><Icons.check className="h-3 w-3" /></span>
                       {f.title}
                     </li>
                   ))}
@@ -369,7 +369,7 @@ export default function HomePage() {
           <h2 className="mx-auto max-w-2xl font-display text-2xl font-black leading-tight sm:text-4xl">
             Tus clientes ya están buscando en Google. Haz que encuentren tu negocio.
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-lg text-green-50">
+          <p className="mx-auto mt-3 max-w-xl text-lg text-red-50">
             Mejora tu presencia digital con un sistema completo diseñado para negocios locales.
           </p>
           <a href={waMain()} target="_blank" rel="noopener noreferrer" className="press mt-7 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-lg font-bold text-brand-greenDark shadow-lg transition hover:bg-slate-100">
