@@ -6,6 +6,7 @@ import LogoMarquee from "@/components/LogoMarquee";
 import SerpMock from "@/components/SerpMock";
 import GoogleReviews from "@/components/GoogleReviews";
 import PanelMock, { LeadsRing } from "@/components/PanelMock";
+import ChatMock from "@/components/ChatMock";
 
 const GoogleWord = () => (
   <span className="whitespace-nowrap font-display">
@@ -284,6 +285,31 @@ export default function HomePage() {
             </ul>
           </Reveal>
           <Reveal delay={120}><SerpMock /></Reveal>
+        </div>
+      </section>
+
+      {/* ===== WhatsApp / Referidos ===== */}
+      <section className="py-20">
+        <div className="container-x grid items-center gap-12 lg:grid-cols-2">
+          <Reveal className="order-2 lg:order-1"><ChatMock /></Reveal>
+          <Reveal delay={120} className="order-1 lg:order-2">
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">LocalChat · Referidos</span>
+            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">
+              Responde y <span className="text-brand-green">fideliza</span> por WhatsApp
+            </h2>
+            <p className="mt-4 text-slate-600">
+              El bot de WhatsApp responde a tus clientes al instante, 24/7. Y con los referidos,
+              cada cliente feliz te trae más clientes automáticamente.
+            </p>
+            <ul className="mt-6 space-y-3 text-slate-700">
+              {["Respuestas automáticas al instante", "Programa de referidos con descuentos", "Nunca pierdes una consulta, ni de noche"].map((t) => (
+                <li key={t} className="flex items-center gap-3">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-green text-white"><Icons.check className="h-3.5 w-3.5" /></span>
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
       </section>
 
