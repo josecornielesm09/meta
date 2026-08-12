@@ -1,16 +1,16 @@
 import Link from "next/link";
-import { PLAN, STEPS, PRODUCTS, waLink, WHATSAPP, SITE, DELIVERY } from "@/lib/plan";
-import MobileMenu from "@/components/MobileMenu";
-import Faq from "@/components/Faq";
-import ShowcaseMock from "@/components/ShowcaseMock";
+import { PLAN, waLink, SITE, CTA, BUSINESS_TYPES, BEFORE, AFTER, SYSTEM, SYSTEM_NAME } from "@/lib/plan";
 import { Icons, Stars } from "@/components/Icons";
 import Reveal from "@/components/Reveal";
 import LogoMarquee from "@/components/LogoMarquee";
 import SerpMock from "@/components/SerpMock";
 import GoogleReviews from "@/components/GoogleReviews";
-import PanelMock, { LeadsRing } from "@/components/PanelMock";
-import MapCard from "@/components/MapCard";
+import PanelMock from "@/components/PanelMock";
+import ShowcaseMock from "@/components/ShowcaseMock";
 import StackedReviews from "@/components/StackedReviews";
+import MapCard from "@/components/MapCard";
+import MobileMenu from "@/components/MobileMenu";
+import Faq from "@/components/Faq";
 
 const GoogleWord = () => (
   <span className="whitespace-nowrap font-display">
@@ -23,87 +23,15 @@ const GoogleWord = () => (
   </span>
 );
 
-/* Mockup de teléfono mostrando la ficha de Google Business */
-function PhoneMock() {
-  return (
-    <div className="relative w-[210px] rounded-[2rem] border-[6px] border-slate-800 bg-slate-800 shadow-2xl">
-      <div className="absolute left-1/2 top-2 h-1.5 w-16 -translate-x-1/2 rounded-full bg-slate-700" />
-      <div className="overflow-hidden rounded-[1.5rem] bg-white pt-5">
-        <div className="mx-3 flex items-center gap-2 rounded-full bg-slate-100 px-3 py-2 text-[11px] text-slate-500">
-          <Icons.keywords className="h-3.5 w-3.5" /> tu negocio cerca de mí
-        </div>
-        <div className="mx-3 mt-2 h-20 rounded-lg bg-gradient-to-br from-emerald-100 via-sky-100 to-emerald-50" />
-        <div className="p-3">
-          <div className="flex items-start justify-between">
-            <div>
-              <div className="text-sm font-bold text-brand-navy">Tu Negocio</div>
-              <div className="flex items-center gap-1 text-[11px]">
-                <span className="font-semibold text-slate-700">4.9</span>
-                <Stars className="h-3 w-3" />
-                <span className="text-slate-400">(30)</span>
-              </div>
-              <div className="text-[10px] text-slate-500">
-                Negocio local · <span className="text-brand-green">Abierto</span>
-              </div>
-            </div>
-            <span className="rounded bg-green-100 px-1.5 py-0.5 text-[10px] font-bold text-brand-greenDark">#1</span>
-          </div>
-          <div className="mt-3 grid grid-cols-4 gap-1 text-center text-[9px] font-semibold text-brand-blue">
-            <div className="flex flex-col items-center gap-1 rounded-lg py-1.5"><Icons.phone className="h-4 w-4" />Llamar</div>
-            <div className="flex flex-col items-center gap-1 rounded-lg py-1.5"><Icons.route className="h-4 w-4" />Ruta</div>
-            <div className="flex flex-col items-center gap-1 rounded-lg py-1.5"><Icons.star className="h-4 w-4" />Guardar</div>
-            <div className="flex flex-col items-center gap-1 rounded-lg py-1.5"><Icons.web className="h-4 w-4" />Sitio</div>
-          </div>
-          <div className="mt-2 grid grid-cols-3 gap-1">
-            <div className="h-10 rounded bg-slate-100" /><div className="h-10 rounded bg-slate-100" /><div className="h-10 rounded bg-slate-100" />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+const HERO_CHIPS = [
+  "Google Business", "Página web SEO", "Palabras clave", "3 videos", "5 imágenes", "30 reseñas",
+];
 
-/* Mockup de laptop mostrando el sitio web del negocio */
-function LaptopMock() {
-  return (
-    <div className="w-full max-w-md">
-      <div className="rounded-t-xl border-[6px] border-slate-800 bg-white">
-        <div className="flex items-center gap-1.5 border-b border-slate-100 bg-slate-50 px-3 py-2">
-          <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
-          <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
-          <span className="h-2.5 w-2.5 rounded-full bg-green-400" />
-          <span className="ml-2 flex-1 rounded bg-white px-2 py-0.5 text-[10px] text-slate-400">tunegocio.com</span>
-        </div>
-        <div className="p-4">
-          <div className="flex items-center justify-between">
-            <div className="h-3 w-20 rounded bg-brand-navy/80" />
-            <div className="flex gap-1.5">
-              <div className="h-2 w-8 rounded bg-slate-200" /><div className="h-2 w-8 rounded bg-slate-200" /><div className="h-2 w-8 rounded bg-brand-green" />
-            </div>
-          </div>
-          <div className="mt-4 grid grid-cols-2 gap-3">
-            <div>
-              <div className="h-2.5 w-24 rounded bg-slate-800" />
-              <div className="mt-1.5 h-2 w-20 rounded bg-slate-300" />
-              <div className="mt-1 h-2 w-16 rounded bg-slate-300" />
-              <div className="mt-3 h-5 w-20 rounded-full bg-brand-green" />
-            </div>
-            <div className="h-20 rounded-lg bg-gradient-to-br from-sky-100 to-emerald-100" />
-          </div>
-          <div className="mt-3 grid grid-cols-3 gap-2">
-            <div className="h-10 rounded-lg bg-slate-100" /><div className="h-10 rounded-lg bg-slate-100" /><div className="h-10 rounded-lg bg-slate-100" />
-          </div>
-        </div>
-      </div>
-      <div className="mx-auto h-2 w-[112%] -translate-x-[5%] rounded-b-xl bg-slate-800" />
-      <div className="mx-auto h-1 w-16 rounded-b-lg bg-slate-700" />
-    </div>
-  );
-}
+const waMain = () => waLink("Hola, quiero posicionar mi negocio en Google.");
 
 export default function HomePage() {
   return (
-    <main className="overflow-x-hidden">
+    <main className="overflow-x-hidden pb-16 sm:pb-0">
       {/* ===== Header ===== */}
       <header className="glass-dark sticky top-0 z-50 border-b border-white/10">
         <div className="container-x flex items-center justify-between py-3">
@@ -113,15 +41,15 @@ export default function HomePage() {
               Promociones<br /><span className="text-brand-green">El Valle 956</span>
             </span>
           </Link>
-          <nav className="hidden gap-8 text-sm font-medium text-slate-300 md:flex">
-            <a href="#productos" className="transition hover:text-white">Productos</a>
-            <a href="#como" className="transition hover:text-white">Cómo funciona</a>
-            <a href="#faq" className="transition hover:text-white">Preguntas</a>
+          <nav className="hidden gap-7 text-sm font-medium text-slate-300 md:flex">
+            <a href="#incluye" className="transition hover:text-white">Qué incluye</a>
+            <a href="#sistema" className="transition hover:text-white">Sistema</a>
+            <a href="#reputacion" className="transition hover:text-white">Reseñas</a>
             <a href="#precio" className="transition hover:text-white">Precio</a>
-            <Link href="/blog" className="transition hover:text-white">Blog</Link>
+            <a href="#faq" className="transition hover:text-white">FAQ</a>
           </nav>
           <div className="flex items-center gap-2">
-            <a href={waLink()} target="_blank" rel="noopener noreferrer" className="press hidden rounded-full bg-brand-green px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-brand-green/25 transition hover:bg-brand-greenDark sm:inline-block">
+            <a href={waMain()} target="_blank" rel="noopener noreferrer" className="press hidden rounded-full bg-brand-green px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-brand-green/25 transition hover:bg-brand-greenDark sm:inline-block">
               Contratar
             </a>
             <MobileMenu />
@@ -129,120 +57,86 @@ export default function HomePage() {
         </div>
       </header>
 
-      {/* ===== Hero ===== */}
+      {/* ===== 1. Hero ===== */}
       <section className="relative overflow-hidden bg-brand-navy text-white">
         <div className="dot-grid absolute inset-0 opacity-30" />
         <div className="pointer-events-none absolute -left-32 top-0 h-96 w-96 rounded-full bg-brand-blue/20 blur-3xl" />
         <div className="pointer-events-none absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-brand-green/20 blur-3xl" />
 
-        <div className="container-x relative grid items-center gap-12 py-16 lg:grid-cols-2 lg:py-24">
+        <div className="container-x relative grid items-center gap-10 py-12 lg:grid-cols-2 lg:py-20">
           <div className="animate-fade-up">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold text-slate-200">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-brand-green" /> Marketing local · {DELIVERY}
+              <span className="h-2 w-2 animate-pulse rounded-full bg-brand-green" /> {SYSTEM_NAME} · Negocios locales
             </span>
-            <h1 className="mt-5 font-display text-4xl font-black leading-[1.05] sm:text-5xl lg:text-[3.4rem]">
-              Todo tu marketing local, en <GoogleWord />
+            <h1 className="mt-5 font-display text-3xl font-black leading-[1.08] sm:text-4xl lg:text-5xl">
+              Haz que más clientes encuentren tu negocio en <GoogleWord />
             </h1>
-            <p className="mt-5 max-w-md text-lg leading-relaxed text-slate-300">
-              Una sola plataforma con todo lo que tu negocio necesita para{" "}
-              <strong className="text-white">aparecer primero en Google</strong>, conseguir reseñas, responder clientes y crecer.
+            <p className="mt-4 max-w-lg text-base leading-relaxed text-slate-300 sm:text-lg">
+              Optimiza la presencia de tu negocio con Google Business, una página web preparada para SEO, contenido profesional y una estrategia para fortalecer tu reputación en Google.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a href={waLink(`Hola, quiero contratar el paquete de SEO Local de $${PLAN.price}.`)} target="_blank" rel="noopener noreferrer" className="press group inline-flex items-center gap-2 rounded-full bg-brand-green px-7 py-3.5 font-bold text-white shadow-xl shadow-brand-green/30 transition hover:bg-brand-greenDark">
-                Empezar por ${PLAN.price}
+
+            {/* chips de lo incluido */}
+            <div className="mt-5 flex flex-wrap gap-2">
+              {HERO_CHIPS.map((c) => (
+                <span key={c} className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-200">
+                  <Icons.check className="h-3 w-3 text-brand-green" /> {c}
+                </span>
+              ))}
+            </div>
+
+            {/* precio + CTA */}
+            <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <a href={waMain()} target="_blank" rel="noopener noreferrer" className="press group inline-flex items-center justify-center gap-2 rounded-full bg-brand-green px-7 py-4 text-base font-bold text-white shadow-xl shadow-brand-green/30 transition hover:bg-brand-greenDark">
+                {CTA}
                 <span className="transition group-hover:translate-x-1">→</span>
               </a>
-              <a href="#productos" className="press inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-3.5 font-bold text-white transition hover:bg-white/10">
-                Ver la plataforma
-              </a>
-            </div>
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-400">
-              <span className="inline-flex items-center gap-1.5"><Stars className="h-4 w-4" /> 30 reseñas</span>
-              <span className="hidden sm:inline">·</span>
-              <span>Inversión única</span>
-              <span className="hidden sm:inline">·</span>
-              <span>Sin mensualidades</span>
-            </div>
-          </div>
-
-          {/* Mockup del panel */}
-          <div className="relative flex justify-center lg:justify-end">
-            <div className="animate-floaty">
-              <PanelMock />
-            </div>
-            <div className="absolute -bottom-8 left-0 hidden animate-floaty sm:block" style={{ animationDelay: "1.5s" }}>
-              <LeadsRing />
-            </div>
-          </div>
-        </div>
-
-        {/* franja de métricas */}
-        <div className="relative border-t border-white/10 bg-white/[0.03]">
-          <div className="container-x grid grid-cols-2 gap-4 py-8 text-center md:grid-cols-4">
-            {[["2 días", "Entrega completa"], ["30+", "Reseñas positivas"], ["4", "Servicios incluidos"], ["$599", "Pago único"]].map(([n, l]) => (
-              <div key={l}>
-                <div className="font-display text-3xl font-black text-white">{n}</div>
-                <div className="mt-1 text-sm text-slate-400">{l}</div>
+              <div className="text-sm text-slate-300">
+                <span className="font-display text-2xl font-black text-white">${PLAN.price}</span> · pago único
               </div>
-            ))}
+            </div>
+            <div className="mt-5 flex items-center gap-2 text-sm text-slate-400">
+              <Stars className="h-4 w-4" /> 30 reseñas incluidas · Negocios locales en McAllen, TX
+            </div>
+          </div>
+
+          <div className="relative flex justify-center lg:justify-end">
+            <div className="animate-floaty"><PanelMock /></div>
           </div>
         </div>
       </section>
 
-      {/* ===== Logos ===== */}
-      <section className="bg-white py-14">
+      {/* ===== 2. Prueba / confianza ===== */}
+      <section className="bg-white py-12">
         <div className="container-x">
-          <p className="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-slate-400">
-            Negocios que ya confían en nosotros
+          <p className="mb-6 text-center text-sm font-semibold uppercase tracking-widest text-slate-400">
+            Negocios locales que confían en nosotros
           </p>
           <LogoMarquee />
         </div>
       </section>
 
-      {/* ===== Productos (plataforma) ===== */}
-      <section id="productos" className="bg-slate-50 py-20">
+      {/* ===== 3. Todo lo que incluye ===== */}
+      <section id="incluye" className="bg-slate-50 py-16 sm:py-20">
         <div className="container-x">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Todo incluido</span>
-            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">
-              Todo lo que tu negocio <span className="text-brand-green">necesita</span>
-            </h2>
-            <p className="mt-3 text-slate-500">4 servicios esenciales para vender más, listos en 2 días.</p>
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">La oferta completa</span>
+            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">Todo lo que incluye</h2>
+            <p className="mt-3 text-slate-500">Un sistema completo para fortalecer la presencia de tu negocio en Google.</p>
           </Reveal>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {PRODUCTS.map((p, i) => {
-              const Icon = Icons[p.icon] ?? Icons.check;
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {PLAN.features.map((f, i) => {
+              const Icon = Icons[f.id] ?? Icons.check;
+              const isReviews = f.id === "reviews";
               return (
-                <Reveal key={p.id} delay={(i % 4) * 80}>
-                  <div className="group spring relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white hover:-translate-y-2 hover:border-transparent hover:shadow-soft">
-                    {/* cabecera con degradado */}
-                    <div className={`relative flex h-28 items-center justify-center overflow-hidden bg-gradient-to-br ${p.color}`}>
-                      <div className="absolute inset-0 opacity-25" style={{ backgroundImage: "radial-gradient(circle at 25% 25%, #fff 1.5px, transparent 1.5px)", backgroundSize: "18px 18px" }} />
-                      {/* brillo que barre al pasar el mouse */}
-                      <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-                      {/* icono grande decorativo de fondo */}
-                      <Icon className="pointer-events-none absolute -bottom-4 -right-3 h-24 w-24 text-white/15 transition-transform duration-700 group-hover:rotate-6" />
-                      {/* icono principal en círculo de vidrio */}
-                      <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-white/25 backdrop-blur-sm ring-1 ring-white/40 transition duration-500 group-hover:scale-110 group-hover:bg-white/35">
-                        <Icon className="h-7 w-7 text-white drop-shadow" />
-                      </div>
+                <Reveal key={f.id} delay={(i % 3) * 80}>
+                  <div className={`spring flex h-full items-start gap-4 rounded-2xl border bg-white p-5 hover:-translate-y-1 hover:shadow-soft ${isReviews ? "border-brand-green/50 ring-1 ring-brand-green/20" : "border-slate-200"}`}>
+                    <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${isReviews ? "bg-brand-green text-white" : "bg-brand-navy text-brand-green"}`}>
+                      <Icon className="h-6 w-6" />
                     </div>
-                    <div className="flex flex-1 flex-col p-5">
-                      <h3 className="font-display text-lg font-bold text-brand-navy">{p.name}</h3>
-                      <p className="text-xs font-semibold uppercase tracking-wide text-brand-green">{p.tagline}</p>
-                      <p className="mt-2 text-sm leading-relaxed text-slate-600">{p.desc}</p>
-                      <ul className="mt-3 space-y-1.5">
-                        {p.features.map((ft) => (
-                          <li key={ft} className="flex items-center gap-2 text-xs text-slate-500">
-                            <span className="flex h-4 w-4 items-center justify-center rounded-full bg-green-100 text-brand-greenDark"><Icons.check className="h-2.5 w-2.5" /></span>
-                            {ft}
-                          </li>
-                        ))}
-                      </ul>
-                      <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-brand-green opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
-                        Saber más →
-                      </span>
+                    <div>
+                      <h3 className="font-display font-bold text-brand-navy">{f.title}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-slate-600">{f.desc}</p>
                     </div>
                   </div>
                 </Reveal>
@@ -250,184 +144,169 @@ export default function HomePage() {
             })}
           </div>
 
-          <Reveal className="mt-10 text-center">
-            <div className="inline-flex flex-wrap items-center justify-center gap-4 rounded-2xl bg-brand-navy px-8 py-6 text-white">
-              <span className="font-display text-lg font-bold">Todos los productos, un solo precio.</span>
-              <a href={waLink(`Hola, quiero contratar el paquete de SEO Local de $${PLAN.price}.`)} target="_blank" rel="noopener noreferrer" className="press rounded-full bg-brand-green px-6 py-3 font-bold text-white transition hover:bg-brand-greenDark">
-                Empezar por ${PLAN.price} →
-              </a>
-            </div>
+          {/* preview de entregables */}
+          <Reveal className="mt-16 text-center">
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Contenido optimizado</span>
+            <h3 className="mt-2 font-display text-2xl font-black text-brand-navy sm:text-3xl">Así se verá tu negocio</h3>
           </Reveal>
+          <Reveal className="mt-8 rounded-3xl bg-brand-navy p-6 sm:p-10"><ShowcaseMock /></Reveal>
         </div>
       </section>
 
-      {/* ===== Presencia + Reputación ===== */}
-      <section className="py-20">
+      {/* ===== 4. Sistema de Posicionamiento Local ===== */}
+      <section id="sistema" className="py-16 sm:py-20">
         <div className="container-x">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Visibilidad + reputación</span>
-            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">
-              Tu negocio, <span className="text-brand-green">imposible de ignorar</span>
-            </h2>
-            <p className="mt-3 text-slate-500">Apareces en el mapa cuando te buscan, y tus reseñas generan confianza al instante.</p>
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">No son piezas sueltas</span>
+            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">{SYSTEM_NAME}</h2>
+            <p className="mt-3 text-slate-500">No estás comprando “una web + unas imágenes”. Construimos una presencia digital completa donde cada elemento potencia al siguiente.</p>
           </Reveal>
-          <div className="mt-14 grid items-center gap-12 lg:grid-cols-2">
-            <Reveal><MapCard /></Reveal>
+
+          <div className="mt-12 flex flex-col items-stretch gap-3 md:flex-row md:items-center md:justify-center">
+            {SYSTEM.map((s, i) => {
+              const Icon = Icons[s.icon] ?? Icons.check;
+              const last = i === SYSTEM.length - 1;
+              return (
+                <Reveal key={s.label} delay={i * 90} className="md:contents">
+                  <div className={`flex items-center gap-3 rounded-2xl border p-4 md:w-36 md:flex-col md:text-center ${last ? "border-brand-green bg-green-50" : "border-slate-200 bg-white"}`}>
+                    <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${last ? "bg-brand-green text-white" : "bg-brand-navy text-brand-green"}`}>
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <span className={`text-sm font-bold ${last ? "text-brand-greenDark" : "text-brand-navy"}`}>{s.label}</span>
+                  </div>
+                  {!last && <span className="mx-auto text-brand-green md:mx-0">↓<span className="hidden md:inline">→</span></span>}
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== 5. Antes / Después ===== */}
+      <section className="bg-slate-50 py-16 sm:py-20">
+        <div className="container-x">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">La transformación</span>
+            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">De una presencia básica a una presencia profesional</h2>
+          </Reveal>
+          <div className="mx-auto mt-10 grid max-w-3xl gap-5 sm:grid-cols-2">
+            <Reveal>
+              <div className="h-full rounded-2xl border border-slate-200 bg-white p-6">
+                <div className="mb-4 inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-bold uppercase text-slate-500">Antes</div>
+                <ul className="space-y-2.5">
+                  {BEFORE.map((t) => (
+                    <li key={t} className="flex items-center gap-3 text-sm text-slate-500">
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-400">✕</span>{t}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
             <Reveal delay={120}>
-              <StackedReviews />
-              <p className="mt-6 text-center text-sm text-slate-500 lg:text-left">
-                Reseñas reales de clientes que hoy encuentran tu negocio primero.
-              </p>
+              <div className="h-full rounded-2xl border-2 border-brand-green bg-white p-6 shadow-card">
+                <div className="mb-4 inline-flex rounded-full bg-brand-green px-3 py-1 text-xs font-bold uppercase text-white">Después</div>
+                <ul className="space-y-2.5">
+                  {AFTER.map((t) => (
+                    <li key={t} className="flex items-center gap-3 text-sm font-medium text-slate-700">
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-green-100 text-brand-greenDark"><Icons.check className="h-3 w-3" /></span>{t}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </Reveal>
           </div>
         </div>
       </section>
 
-      {/* ===== Cómo funciona ===== */}
-      <section id="como" className="bg-slate-50 py-20">
-        <div className="container-x">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Proceso simple</span>
-            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">Cómo funciona</h2>
-            <p className="mt-3 text-slate-500">De la contratación a los primeros lugares de Google, sin complicaciones.</p>
-          </Reveal>
-          <div className="relative mt-16 grid gap-8 md:grid-cols-4">
-            {/* línea conectora */}
-            <div className="pointer-events-none absolute left-[12%] right-[12%] top-8 hidden h-0.5 bg-gradient-to-r from-brand-green/30 via-brand-green/50 to-brand-green/30 md:block" />
-            {STEPS.map((s, i) => {
-              const Icon = Icons[s.icon] ?? Icons.check;
-              return (
-                <Reveal key={s.n} delay={i * 110}>
-                  <div className="group relative flex h-full flex-col items-center text-center">
-                    {/* badge con icono */}
-                    <div className="spring relative z-10 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-green to-emerald-500 text-white shadow-lg shadow-brand-green/30 group-hover:-translate-y-1">
-                      <Icon className="h-8 w-8" />
-                      <span className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-brand-navy text-[11px] font-black text-white">{i + 1}</span>
-                    </div>
-                    <div className="mt-5 w-full flex-1 rounded-2xl border border-slate-200 bg-white p-5 transition duration-300 group-hover:border-brand-green/40 group-hover:shadow-card">
-                      <h3 className="font-display text-lg font-bold text-brand-navy">{s.title}</h3>
-                      <p className="mt-1.5 text-sm text-slate-600">{s.desc}</p>
-                    </div>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== Demostración SEO ===== */}
-      <section className="bg-slate-50 py-20">
+      {/* ===== 6. Beneficio / value prop ===== */}
+      <section className="py-16 sm:py-20">
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
-            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Así funciona el SEO</span>
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">El problema real</span>
             <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">
-              De la página 2… a ser <span className="text-brand-green">el primero</span>
+              Tus clientes ya están buscando en Google
             </h2>
-            <p className="mt-4 text-slate-600">
-              El 90% de las personas nunca pasa de la primera página de Google. Si tu negocio no está
-              arriba, es como si no existiera. Con SEO Local subimos tu ficha al{" "}
-              <strong>“map pack”</strong> — las 3 fichas con mapa que Google muestra primero.
+            <p className="mt-4 text-lg text-slate-600">
+              La pregunta es si encuentran primero <strong className="text-brand-navy">tu negocio</strong> o a <strong className="text-slate-400">tu competencia</strong>.
             </p>
-            <ul className="mt-6 space-y-3 text-slate-700">
-              {["Apareces en el mapa cuando buscan tu servicio", "Por encima de tu competencia directa", "Más clics, llamadas y visitas a tu negocio"].map((t) => (
-                <li key={t} className="flex items-center gap-3">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-green text-white"><Icons.check className="h-3.5 w-3.5" /></span>
-                  {t}
-                </li>
-              ))}
-            </ul>
+            <p className="mt-4 text-slate-600">
+              Optimizamos tu presencia digital para que tu negocio aparezca cuando buscan tus servicios en tu zona, con un perfil sólido, contenido profesional y buena reputación.
+            </p>
           </Reveal>
           <Reveal delay={120}><SerpMock /></Reveal>
         </div>
       </section>
 
-      {/* ===== Showcase de contenido (mockups) ===== */}
-      <section className="bg-brand-navy py-20 text-white">
-        <div className="container-x">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Contenido optimizado</span>
-            <h2 className="mt-2 font-display text-3xl font-black sm:text-4xl">Así se verá tu negocio</h2>
-            <p className="mt-3 text-slate-400">Landing, videos e imágenes profesionales — en escritorio y móvil, listos para vender.</p>
+      {/* ===== 7. Reputación / 30 reseñas ===== */}
+      <section id="reputacion" className="bg-brand-navy py-16 text-white sm:py-20">
+        <div className="container-x grid items-center gap-12 lg:grid-cols-2">
+          <Reveal>
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Reputación</span>
+            <h2 className="mt-2 font-display text-3xl font-black sm:text-4xl">Una mejor reputación genera más confianza</h2>
+            <div className="mt-6 flex items-center gap-4">
+              <div className="text-amber-400 text-3xl">★★★★★</div>
+              <div className="font-display text-4xl font-black">30 <span className="text-lg font-bold text-slate-300">reseñas incluidas</span></div>
+            </div>
+            <p className="mt-4 text-slate-300">
+              Las reseñas fortalecen la presencia y la percepción de tu negocio en Google. Un perfil con buenas reseñas transmite confianza y ayuda a que más clientes te elijan.
+            </p>
           </Reveal>
-          <Reveal className="mt-14"><ShowcaseMock /></Reveal>
+          <Reveal delay={120}><StackedReviews /></Reveal>
         </div>
       </section>
 
-      {/* ===== Reseñas de Google ===== */}
-      <section className="py-20">
+      {/* ===== 8. Tipos de negocios ===== */}
+      <section className="py-16 sm:py-20">
         <div className="container-x">
-          <Reveal className="mx-auto mb-12 max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">¿Para quién es?</span>
+            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">Ideal para negocios locales</h2>
+          </Reveal>
+          <div className="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-3">
+            {BUSINESS_TYPES.map((b) => (
+              <span key={b.label} className="spring inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 hover:-translate-y-0.5 hover:border-brand-green/40 hover:shadow-card">
+                <span className="text-lg">{b.icon}</span> {b.label}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== 9. Resultados (ejemplo) ===== */}
+      <section className="bg-slate-50 py-16 sm:py-20">
+        <div className="container-x grid items-center gap-12 lg:grid-cols-2">
+          <Reveal>
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Visibilidad en el mapa</span>
+            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">Aparece donde te buscan</h2>
+            <p className="mt-4 text-slate-600">
+              Optimizamos tu ficha para que tu negocio se vea en el mapa cuando buscan tus servicios cerca. Así generas más clics, llamadas y visitas.
+            </p>
+            <p className="mt-4 text-xs text-slate-400">* Los paneles y gráficas son ejemplos ilustrativos, no resultados de un cliente específico.</p>
+          </Reveal>
+          <Reveal delay={120}><MapCard /></Reveal>
+        </div>
+      </section>
+
+      {/* ===== 10. Testimonios ===== */}
+      <section className="py-16 sm:py-20">
+        <div className="container-x">
+          <Reveal className="mx-auto mb-10 max-w-2xl text-center">
             <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Testimonios</span>
-            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">Reseñas reales de clientes</h2>
-            <p className="mt-3 text-slate-500">Negocios que hoy aparecen primero en Google.</p>
+            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">Lo que dicen los negocios</h2>
           </Reveal>
           <Reveal><GoogleReviews /></Reveal>
         </div>
       </section>
 
-      {/* ===== Comparación ===== */}
-      <section className="bg-slate-50 py-20">
+      {/* ===== 11. Precio ===== */}
+      <section id="precio" className="bg-slate-50 py-16 sm:py-20">
         <div className="container-x">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">La diferencia</span>
-            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">
-              Con nosotros vs. <span className="text-slate-400">por tu cuenta</span>
-            </h2>
-          </Reveal>
-          <Reveal className="mx-auto mt-12 max-w-3xl overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card">
-            <div className="grid grid-cols-2">
-              <div className="border-r border-slate-100 bg-brand-navy p-6 text-center text-white">
-                <div className="font-display text-lg font-bold">Con <span className="text-brand-green">El Valle 956</span></div>
-              </div>
-              <div className="p-6 text-center">
-                <div className="font-display text-lg font-bold text-slate-400">Por tu cuenta</div>
-              </div>
-            </div>
-            {[
-              ["Todo listo en 2 días", "Semanas o meses de trabajo"],
-              ["Apareces primero en Google", "Peleas por visibilidad"],
-              ["30 reseñas positivas incluidas", "Pocas o ninguna reseña"],
-              ["Landing + videos + fotos incluidos", "Contratas todo por separado"],
-              ["Un solo pago de $599", "Gastas más y sin garantía"],
-            ].map(([si, no], i) => (
-              <div key={i} className="grid grid-cols-2 border-t border-slate-100">
-                <div className="flex items-center gap-2 border-r border-slate-100 p-4 text-sm text-slate-700">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-green-100 text-brand-greenDark"><Icons.check className="h-3 w-3" /></span>
-                  {si}
-                </div>
-                <div className="flex items-center gap-2 p-4 text-sm text-slate-400">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-400">✕</span>
-                  {no}
-                </div>
-              </div>
-            ))}
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ===== FAQ ===== */}
-      <section id="faq" className="py-20">
-        <div className="container-x">
-          <Reveal className="mx-auto mb-12 max-w-2xl text-center">
-            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Preguntas frecuentes</span>
-            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">¿Tienes dudas?</h2>
-            <p className="mt-3 text-slate-500">Resolvemos las preguntas más comunes antes de empezar.</p>
-          </Reveal>
-          <Reveal><Faq /></Reveal>
-        </div>
-      </section>
-
-      {/* ===== Precio ===== */}
-      <section id="precio" className="bg-slate-50 py-20">
-        <div className="container-x">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Precio simple</span>
-            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">Un solo precio, todo incluido</h2>
-            <p className="mt-3 text-slate-500">Sin mensualidades, sin letras chiquitas. Pagas una vez y es tuyo.</p>
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Una inversión, todo incluido</span>
+            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">Todo lo necesario para fortalecer tu presencia en Google</h2>
           </Reveal>
 
-          <div className="mx-auto mt-12 max-w-lg">
+          <div className="mx-auto mt-10 max-w-lg">
             <Reveal>
               <div className="relative overflow-hidden rounded-3xl border-2 border-brand-green bg-white p-8 shadow-soft sm:p-10">
                 <div className="absolute right-0 top-0 rounded-bl-2xl bg-brand-green px-4 py-1.5 text-xs font-bold uppercase text-white">Oferta completa</div>
@@ -436,54 +315,50 @@ export default function HomePage() {
                   <div className="mt-2 flex items-start justify-center">
                     <span className="mt-3 font-display text-3xl font-bold text-brand-navy">$</span>
                     <span className="font-display text-7xl font-black leading-none text-brand-navy">{PLAN.price}</span>
-                    <span className="mt-4 ml-2 text-left text-sm text-slate-400 line-through">$1,200</span>
                   </div>
-                  <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-slate-400">{PLAN.billing}</p>
+                  <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-slate-400">Pago único</p>
                 </div>
-
                 <ul className="mx-auto mt-8 max-w-sm space-y-2.5 text-left">
                   {PLAN.features.map((f) => (
                     <li key={f.id} className="flex items-start gap-3 text-sm text-slate-700">
-                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-green-100 text-brand-greenDark">
-                        <Icons.check className="h-3 w-3" />
-                      </span>
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-green-100 text-brand-greenDark"><Icons.check className="h-3 w-3" /></span>
                       {f.title}
                     </li>
                   ))}
                 </ul>
-
-                {/* bonos */}
-                <div className="mx-auto mt-6 max-w-sm rounded-2xl bg-slate-50 p-4">
-                  <div className="text-xs font-bold uppercase tracking-wide text-brand-green">🎁 Bonos incluidos</div>
-                  <ul className="mt-2 space-y-1.5 text-sm text-slate-600">
-                    <li>✓ Configuración completa, lista para usar</li>
-                    <li>✓ Soporte por WhatsApp durante el proceso</li>
-                    <li>✓ Panel para ver tus resultados</li>
-                  </ul>
-                </div>
-
-                <a href={waLink(`Hola, quiero contratar el paquete de SEO Local de $${PLAN.price}.`)} target="_blank" rel="noopener noreferrer" className="press mt-8 block rounded-full bg-brand-green px-6 py-4 text-center text-lg font-bold text-white shadow-lg shadow-brand-green/25 transition hover:bg-brand-greenDark">
-                  Quiero contratar ahora
+                <a href={waMain()} target="_blank" rel="noopener noreferrer" className="press mt-8 block rounded-full bg-brand-green px-6 py-4 text-center text-lg font-bold text-white shadow-lg shadow-brand-green/25 transition hover:bg-brand-greenDark">
+                  {CTA}
                 </a>
-
-                <div className="mt-4 flex items-center justify-center gap-2 text-xs text-slate-500">
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-green-100 text-brand-greenDark"><Icons.check className="h-3 w-3" /></span>
-                  Garantía de satisfacción · Pago único · Sin mensualidades
-                </div>
+                <p className="mt-3 text-center text-xs text-slate-400">Sin mensualidades · Pago único</p>
               </div>
             </Reveal>
           </div>
         </div>
       </section>
 
-      {/* ===== CTA final ===== */}
+      {/* ===== 12. FAQ ===== */}
+      <section id="faq" className="py-16 sm:py-20">
+        <div className="container-x">
+          <Reveal className="mx-auto mb-10 max-w-2xl text-center">
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Preguntas frecuentes</span>
+            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">¿Tienes dudas?</h2>
+          </Reveal>
+          <Reveal><Faq /></Reveal>
+        </div>
+      </section>
+
+      {/* ===== 13. CTA final ===== */}
       <section className="relative overflow-hidden bg-brand-green py-16 text-center text-white">
         <div className="dot-grid absolute inset-0 opacity-20" />
         <div className="container-x relative">
-          <h2 className="font-display text-2xl font-black sm:text-3xl">Aparece primero. Destaca siempre. Crece sin límites.</h2>
-          <p className="mt-2 text-lg text-green-50">¡Tu negocio merece ser encontrado!</p>
-          <a href={waLink()} target="_blank" rel="noopener noreferrer" className="press mt-6 inline-block rounded-full bg-white px-8 py-3.5 font-bold text-brand-greenDark shadow-lg transition hover:bg-slate-100">
-            Empezar ahora →
+          <h2 className="mx-auto max-w-2xl font-display text-2xl font-black leading-tight sm:text-4xl">
+            Tus clientes ya están buscando en Google. Haz que encuentren tu negocio.
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-lg text-green-50">
+            Mejora tu presencia digital con un sistema completo diseñado para negocios locales.
+          </p>
+          <a href={waMain()} target="_blank" rel="noopener noreferrer" className="press mt-7 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-lg font-bold text-brand-greenDark shadow-lg transition hover:bg-slate-100">
+            {CTA} · ${PLAN.price}
           </a>
         </div>
       </section>
@@ -493,7 +368,7 @@ export default function HomePage() {
         <div className="container-x grid gap-10 pb-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <img src={SITE.logo} alt={SITE.name} className="h-14 w-auto" />
-            <p className="mt-3 max-w-xs text-sm">La plataforma de marketing local todo-en-uno para que tu negocio crezca en Google.</p>
+            <p className="mt-3 max-w-xs text-sm">Sistema de Posicionamiento Local para que tu negocio destaque en Google.</p>
             <p className="mt-3 flex items-center gap-2 text-sm">
               <svg className="h-4 w-4 text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 21s-7-6.3-7-11a7 7 0 0114 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
               {SITE.address}
@@ -511,33 +386,33 @@ export default function HomePage() {
             </div>
           </div>
           <div>
-            <div className="mb-3 text-sm font-bold text-white">Productos</div>
+            <div className="mb-3 text-sm font-bold text-white">Incluye</div>
             <ul className="space-y-2 text-sm">
-              {PRODUCTS.slice(0, 5).map((p) => (
-                <li key={p.id}><a href="#productos" className="transition hover:text-white">{p.name}</a></li>
-              ))}
+              <li><a href="#incluye" className="transition hover:text-white">Google Business</a></li>
+              <li><a href="#incluye" className="transition hover:text-white">Página web SEO</a></li>
+              <li><a href="#incluye" className="transition hover:text-white">Contenido visual</a></li>
+              <li><a href="#reputacion" className="transition hover:text-white">30 reseñas</a></li>
             </ul>
           </div>
           <div>
             <div className="mb-3 text-sm font-bold text-white">Enlaces</div>
             <ul className="space-y-2 text-sm">
-              <li><a href="#como" className="transition hover:text-white">Cómo funciona</a></li>
-              <li><a href="#faq" className="transition hover:text-white">Preguntas frecuentes</a></li>
+              <li><a href="#sistema" className="transition hover:text-white">El sistema</a></li>
               <li><a href="#precio" className="transition hover:text-white">Precio</a></li>
-              <li><Link href="/blog" className="transition hover:text-white">Blog</Link></li>
+              <li><a href="#faq" className="transition hover:text-white">Preguntas frecuentes</a></li>
+              <li><Link href="/dashboard" className="transition hover:text-white">Panel</Link></li>
             </ul>
           </div>
           <div>
             <div className="mb-3 text-sm font-bold text-white">Contacto</div>
             <ul className="space-y-2 text-sm">
-              <li><a href={waLink()} target="_blank" rel="noopener noreferrer" className="transition hover:text-white">WhatsApp: {WHATSAPP.display}</a></li>
-              <li><a href="/pedido" className="transition hover:text-white">Formulario de contacto</a></li>
-              <li><Link href="/dashboard" className="transition hover:text-white">Panel de administración</Link></li>
+              <li><a href={waLink()} target="_blank" rel="noopener noreferrer" className="transition hover:text-white">WhatsApp directo</a></li>
+              <li>McAllen, TX</li>
             </ul>
           </div>
         </div>
         <div className="border-t border-white/10 py-6 text-center text-xs">
-          © {new Date().getFullYear()} {SITE.name} · McAllen, TX · Aparece primero en Google.
+          © {new Date().getFullYear()} {SITE.name} · McAllen, TX
         </div>
       </footer>
     </main>

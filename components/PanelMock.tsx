@@ -25,7 +25,7 @@ export default function PanelMock() {
       <div className="flex items-center justify-between border-b border-slate-100 pb-3">
         <div className="flex items-center gap-2">
           <span className="text-sm font-black text-brand-navy">El Valle <span className="text-brand-red">956</span></span>
-          <span className="text-xs text-slate-400">· Rendimiento</span>
+          <span className="rounded bg-amber-100 px-1.5 py-0.5 text-[9px] font-bold uppercase text-amber-700">Ejemplo</span>
         </div>
         <span className="rounded-md border border-slate-200 px-2 py-1 text-[11px] text-slate-500">Últimos 90 días ▾</span>
       </div>

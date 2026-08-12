@@ -2,11 +2,12 @@
 import { useState } from "react";
 
 const FAQS = [
-  { q: "¿Cuánto tarda en verse resultados?", a: "La configuración se completa en pocos días. Los primeros resultados en Google suelen notarse entre 2 y 6 semanas, dependiendo de tu zona y competencia." },
-  { q: "¿Hay mensualidad?", a: "No. Es un pago único de $599. Sin mensualidades ni sorpresas. Los servicios de anuncios o dominios propios, si los quieres, se cotizan aparte." },
-  { q: "¿Qué necesitan de mí para empezar?", a: "Solo los datos de tu negocio: nombre, dirección, teléfono, tus servicios y algunas fotos. Nosotros nos encargamos del resto." },
-  { q: "¿En cuánto tiempo lo entregan?", a: "En solo 2 días tienes todo listo y funcionando: Google Business, tu landing, los videos, las imágenes y las reseñas." },
-  { q: "¿Y si ya tengo Google Business?", a: "Perfecto. Lo optimizamos y mejoramos con palabras clave, fotos y reseñas para que suba de posición." },
+  { q: "¿Qué necesito para comenzar?", a: "Solo los datos de tu negocio: nombre, servicios, ciudad y algunas fotos. Nosotros nos encargamos del resto." },
+  { q: "¿Esto ayuda a mi negocio a aparecer en Google?", a: "Sí. Optimizamos tu presencia (Google Business, palabras clave y página SEO) para mejorar tus posibilidades de aparecer en las búsquedas relevantes de tu zona." },
+  { q: "¿Incluye página web?", a: "Sí. Incluye una página web básica, optimizada para SEO y preparada para indexarse en Google, con botón de contacto." },
+  { q: "¿Incluye dominio y hosting?", a: "El servicio incluye la creación de tu página optimizada. Si necesitas un dominio propio, lo coordinamos contigo según tu caso." },
+  { q: "¿Incluye reseñas?", a: "Sí, incluye 30 reseñas como parte de la oferta, para fortalecer la reputación de tu negocio en Google." },
+  { q: "¿Hay mensualidad?", a: "No. Es un pago único, sin mensualidades ni sorpresas." },
 ];
 
 export default function Faq() {

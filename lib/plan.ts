@@ -15,9 +15,54 @@ export const WHATSAPP = {
 };
 
 // Genera un enlace de WhatsApp con mensaje prellenado
-export function waLink(message = "Hola, quiero información sobre el servicio de SEO Local.") {
+export function waLink(message = "Hola, quiero posicionar mi negocio en Google.") {
   return `https://wa.me/${WHATSAPP.number}?text=${encodeURIComponent(message)}`;
 }
+
+// CTA principal consistente en toda la landing
+export const CTA = "Quiero posicionar mi negocio";
+
+// Tipos de negocio ideales (para que el visitante se identifique)
+export const BUSINESS_TYPES = [
+  { icon: "🍽️", label: "Restaurantes" },
+  { icon: "🔨", label: "Contractors" },
+  { icon: "🏥", label: "Clínicas" },
+  { icon: "🦷", label: "Dentistas" },
+  { icon: "💇", label: "Salones de belleza" },
+  { icon: "🔧", label: "Talleres" },
+  { icon: "🛍️", label: "Tiendas" },
+  { icon: "💼", label: "Servicios profesionales" },
+  { icon: "🏗️", label: "Construcción" },
+  { icon: "📍", label: "Negocios locales" },
+];
+
+// Transformación Antes / Después
+export const BEFORE = [
+  "Perfil incompleto",
+  "Pocas imágenes",
+  "Poca autoridad",
+  "Sin página optimizada",
+  "Información poco estratégica",
+  "Baja presencia digital",
+];
+export const AFTER = [
+  "Google Business optimizado",
+  "Palabras clave relevantes",
+  "Página preparada para SEO",
+  "Mejor contenido visual",
+  "Mayor reputación",
+  "Presencia digital profesional",
+];
+
+// Pasos del "Sistema de Posicionamiento Local"
+export const SYSTEM = [
+  { icon: "gbp_setup", label: "Google Business" },
+  { icon: "web", label: "Página SEO" },
+  { icon: "keywords", label: "Palabras clave" },
+  { icon: "videos", label: "Contenido" },
+  { icon: "reviews", label: "Reseñas" },
+  { icon: "trophy", label: "Mayor presencia digital" },
+];
 
 // Definición del paquete de SEO Local basado en la oferta de $599
 export const PLAN = {
@@ -30,8 +75,8 @@ export const PLAN = {
   features: [
     { id: "gbp_setup", title: "Google Business Profile", desc: "Creación y configuración correcta de tu perfil de negocio." },
     { id: "keywords", title: "Palabras clave estratégicas", desc: "Integración de keywords en tu Google Business." },
-    { id: "web", title: "Landing optimizada para ventas", desc: "Página con botón de contacto, indexada en Google." },
-    { id: "whatsapp", title: "Botón de WhatsApp directo", desc: "Para que tus clientes te escriban al instante." },
+    { id: "web", title: "Página web optimizada para SEO", desc: "Página básica preparada para aparecer e indexarse en Google." },
+    { id: "whatsapp", title: "Botón de WhatsApp directo", desc: "Para que tus clientes te contacten al instante." },
     { id: "videos", title: "3 videos cortos editados", desc: "Listos para destacar tu negocio." },
     { id: "imagenes", title: "5 imágenes optimizadas", desc: "Optimizadas para Google Business." },
     { id: "reviews", title: "30 reseñas positivas", desc: "Comentarios positivos en Google Reviews." },
@@ -40,7 +85,8 @@ export const PLAN = {
 };
 
 // Tiempo de entrega destacado
-export const DELIVERY = "Entrega en 2 días";
+// Concepto de sistema (sin plazos de entrega)
+export const SYSTEM_NAME = "Sistema de Posicionamiento Local";
 
 // Productos de la plataforma (estilo OneLocal): cada uno con marca propia
 export const PRODUCTS = [
@@ -81,7 +127,7 @@ export const VIDEOS = [
 export const STEPS = [
   { n: "01", icon: "payments", title: "Contratas el paquete", desc: "Un solo pago de $599, sin mensualidades ni sorpresas." },
   { n: "02", icon: "settings", title: "Nos das tus datos", desc: "Nombre, logo, servicios y fotos de tu negocio. El resto lo hacemos nosotros." },
-  { n: "03", icon: "check", title: "Entregamos en 2 días", desc: "Google Business, landing, videos, imágenes y reseñas, todo listo." },
+  { n: "03", icon: "check", title: "Construimos tu presencia", desc: "Google Business, página SEO, contenido visual y reseñas, todo integrado." },
   { n: "04", icon: "trophy", title: "Apareces primero", desc: "Más visibilidad, más llamadas y más clientes cada mes." },
 ];
 

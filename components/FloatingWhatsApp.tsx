@@ -8,7 +8,7 @@ export default function FloatingWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Escríbenos por WhatsApp"
-      className="group fixed bottom-5 right-5 z-[60] flex items-center gap-3 rounded-full bg-[#25D366] px-4 py-3.5 font-bold text-white shadow-xl shadow-green-600/30 transition hover:scale-105 hover:bg-[#20bd5a]"
+      className="group fixed bottom-5 right-5 z-[60] hidden items-center gap-3 rounded-full bg-[#25D366] px-4 py-3.5 font-bold text-white shadow-xl shadow-green-600/30 transition hover:scale-105 hover:bg-[#20bd5a] sm:flex"
     >
       <span className="absolute inset-0 animate-ping rounded-full bg-[#25D366] opacity-30" />
       <svg className="relative h-7 w-7" viewBox="0 0 24 24" fill="currentColor">

@@ -4,11 +4,11 @@ import Link from "next/link";
 import { waLink } from "@/lib/plan";
 
 const LINKS = [
-  { href: "#productos", label: "Productos" },
-  { href: "#como", label: "Cómo funciona" },
-  { href: "#faq", label: "Preguntas" },
+  { href: "#incluye", label: "Qué incluye" },
+  { href: "#sistema", label: "El sistema" },
+  { href: "#reputacion", label: "Reseñas" },
   { href: "#precio", label: "Precio" },
-  { href: "/blog", label: "Blog" },
+  { href: "#faq", label: "Preguntas" },
 ];
 
 export default function MobileMenu() {
@@ -28,8 +28,8 @@ export default function MobileMenu() {
                 {l.label}
               </Link>
             ))}
-            <a href={waLink()} target="_blank" rel="noopener noreferrer" className="mt-4 rounded-full bg-brand-green px-5 py-3 text-center font-bold text-white">
-              Contratar por WhatsApp
+            <a href={waLink("Hola, quiero posicionar mi negocio en Google.")} target="_blank" rel="noopener noreferrer" className="mt-4 rounded-full bg-brand-green px-5 py-3 text-center font-bold text-white">
+              Quiero posicionar mi negocio
             </a>
           </nav>
         </div>
