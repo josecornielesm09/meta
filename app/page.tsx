@@ -7,6 +7,8 @@ import SerpMock from "@/components/SerpMock";
 import GoogleReviews from "@/components/GoogleReviews";
 import PanelMock, { LeadsRing } from "@/components/PanelMock";
 import ChatMock from "@/components/ChatMock";
+import MapCard from "@/components/MapCard";
+import StackedReviews from "@/components/StackedReviews";
 
 const GoogleWord = () => (
   <span className="whitespace-nowrap font-display">
@@ -240,8 +242,30 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ===== Presencia + Reputación ===== */}
+      <section className="py-20">
+        <div className="container-x">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Visibilidad + reputación</span>
+            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">
+              Tu negocio, <span className="text-brand-green">imposible de ignorar</span>
+            </h2>
+            <p className="mt-3 text-slate-500">Apareces en el mapa cuando te buscan, y tus reseñas generan confianza al instante.</p>
+          </Reveal>
+          <div className="mt-14 grid items-center gap-12 lg:grid-cols-2">
+            <Reveal><MapCard /></Reveal>
+            <Reveal delay={120}>
+              <StackedReviews />
+              <p className="mt-6 text-center text-sm text-slate-500 lg:text-left">
+                Reseñas reales de clientes que hoy encuentran tu negocio primero.
+              </p>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* ===== Cómo funciona ===== */}
-      <section id="como" className="py-20">
+      <section id="como" className="bg-slate-50 py-20">
         <div className="container-x">
           <Reveal className="mx-auto max-w-2xl text-center">
             <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Proceso simple</span>
