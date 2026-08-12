@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --max: 1140px; }
+html { scroll-behavior: smooth; }
+body { @apply bg-white text-slate-800 antialiased; }
+.container-x { max-width: var(--max); @apply mx-auto px-5; }

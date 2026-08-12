@@ -1,0 +1,78 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Cliente que contrató el servicio SEO
+model Client {
+  id            String    @id @default(cuid())
+  businessName  String
+  contactName   String
+  email         String
+  phone         String?
+  city          String?
+  keywords      String?   // palabras clave objetivo, separadas por coma
+  googleProfile String?   // URL del Google Business Profile
+  website       String?
+  status        String    @default("onboarding") // onboarding | activo | pausado | finalizado
+  createdAt     DateTime  @default(now())
+  services      Service[]
+  posts         BlogPost[]
+  reviews       Review[]
+}
+
+// Tareas / entregables del paquete de $599
+model Service {
+  id        String   @id @default(cuid())
+  clientId  String
+  client    Client   @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  type      String   // gbp_setup | keywords | web | blog_ia | videos | imagenes | reviews
+  title     String
+  status    String   @default("pendiente") // pendiente | en_progreso | completado
+  notes     String?
+  updatedAt DateTime @updatedAt
+}
+
+// Posts del blog (generados por IA o manuales)
+model BlogPost {
+  id          String   @id @default(cuid())
+  clientId    String?
+  client      Client?  @relation(fields: [clientId], references: [id], onDelete: SetNull)
+  title       String
+  slug        String   @unique
+  excerpt     String
+  content     String   // markdown
+  keywords    String?
+  status      String   @default("borrador") // borrador | publicado
+  generatedBy String   @default("ia") // ia | manual
+  createdAt   DateTime @default(now())
+  publishedAt DateTime?
+}
+
+// Reseñas de Google gestionadas
+model Review {
+  id        String   @id @default(cuid())
+  clientId  String
+  client    Client   @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  author    String
+  rating    Int      @default(5)
+  text      String
+  createdAt DateTime @default(now())
+}
+
+// Solicitudes entrantes desde la landing (formulario de pedido)
+model Lead {
+  id           String   @id @default(cuid())
+  businessName String
+  contactName  String
+  email        String
+  phone        String?
+  message      String?
+  plan         String   @default("seo-local-599")
+  status       String   @default("nuevo") // nuevo | contactado | convertido | descartado
+  createdAt    DateTime @default(now())
+}
