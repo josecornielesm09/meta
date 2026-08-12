@@ -15,3 +15,7 @@ En cuanto pongas un archivo, aparece solo en la web. Si falta, se muestra el moc
   video-3.jpg
 
 Formato recomendado: JPG o WebP para que carguen rápido.
+
+— Sección "Un solo ecosistema" (tus diseños de tarjetas):
+  ecosistema-desktop.png  (~1600px de ancho)
+  ecosistema-mobile.png   (~800px de ancho)
