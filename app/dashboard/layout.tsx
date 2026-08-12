@@ -12,15 +12,12 @@ const GROUPS: { title: string; items: { href: string; label: string; icon: strin
     ],
   },
   {
-    title: "Productos",
+    title: "Servicios",
     items: [
-      { href: "/dashboard/reviews", label: "LocalReviews", icon: "⭐" },
-      { href: "/dashboard/mensajes", label: "LocalChat", icon: "💬" },
-      { href: "/dashboard/contactos", label: "LocalContacts", icon: "📇" },
-      { href: "/dashboard/seo", label: "LocalSEO", icon: "🔍" },
-      { href: "/dashboard/blog", label: "LocalContent", icon: "🤖" },
-      { href: "/dashboard/ads", label: "LocalAds", icon: "📣" },
-      { href: "/dashboard/payments", label: "LocalPayments", icon: "💳" },
+      { href: "/dashboard/reviews", label: "Reseñas", icon: "⭐" },
+      { href: "/dashboard/seo", label: "SEO Local", icon: "🔍" },
+      { href: "/dashboard/blog", label: "Contenido", icon: "🎬" },
+      { href: "/dashboard/payments", label: "Cobros", icon: "💳" },
     ],
   },
 ];

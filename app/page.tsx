@@ -1,14 +1,14 @@
 import Link from "next/link";
-import { PLAN, VIDEOS, STEPS, PRODUCTS, waLink, WHATSAPP, SITE } from "@/lib/plan";
+import { PLAN, STEPS, PRODUCTS, waLink, WHATSAPP, SITE, DELIVERY } from "@/lib/plan";
 import MobileMenu from "@/components/MobileMenu";
 import Faq from "@/components/Faq";
+import ShowcaseMock from "@/components/ShowcaseMock";
 import { Icons, Stars } from "@/components/Icons";
 import Reveal from "@/components/Reveal";
 import LogoMarquee from "@/components/LogoMarquee";
 import SerpMock from "@/components/SerpMock";
 import GoogleReviews from "@/components/GoogleReviews";
 import PanelMock, { LeadsRing } from "@/components/PanelMock";
-import ChatMock from "@/components/ChatMock";
 import MapCard from "@/components/MapCard";
 import StackedReviews from "@/components/StackedReviews";
 
@@ -138,7 +138,7 @@ export default function HomePage() {
         <div className="container-x relative grid items-center gap-12 py-16 lg:grid-cols-2 lg:py-24">
           <div className="animate-fade-up">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold text-slate-200">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-brand-green" /> La plataforma de marketing local todo-en-uno
+              <span className="h-2 w-2 animate-pulse rounded-full bg-brand-green" /> Marketing local · {DELIVERY}
             </span>
             <h1 className="mt-5 font-display text-4xl font-black leading-[1.05] sm:text-5xl lg:text-[3.4rem]">
               Todo tu marketing local, en <GoogleWord />
@@ -179,7 +179,7 @@ export default function HomePage() {
         {/* franja de métricas */}
         <div className="relative border-t border-white/10 bg-white/[0.03]">
           <div className="container-x grid grid-cols-2 gap-4 py-8 text-center md:grid-cols-4">
-            {[["8", "Productos integrados"], ["30+", "Reseñas positivas"], ["24/7", "Bot de WhatsApp"], ["$599", "Desde"]].map(([n, l]) => (
+            {[["2 días", "Entrega completa"], ["30+", "Reseñas positivas"], ["4", "Servicios incluidos"], ["$599", "Pago único"]].map(([n, l]) => (
               <div key={l}>
                 <div className="font-display text-3xl font-black text-white">{n}</div>
                 <div className="mt-1 text-sm text-slate-400">{l}</div>
@@ -203,11 +203,11 @@ export default function HomePage() {
       <section id="productos" className="bg-slate-50 py-20">
         <div className="container-x">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Una plataforma, todo incluido</span>
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Todo incluido</span>
             <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">
-              8 productos que trabajan <span className="text-brand-green">juntos</span>
+              Todo lo que tu negocio <span className="text-brand-green">necesita</span>
             </h2>
-            <p className="mt-3 text-slate-500">Cada herramienta de marketing local que tu negocio necesita, integrada en un solo lugar.</p>
+            <p className="mt-3 text-slate-500">4 servicios esenciales para vender más, listos en 2 días.</p>
           </Reveal>
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -342,57 +342,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== WhatsApp / Referidos ===== */}
-      <section className="py-20">
-        <div className="container-x grid items-center gap-12 lg:grid-cols-2">
-          <Reveal className="order-2 lg:order-1"><ChatMock /></Reveal>
-          <Reveal delay={120} className="order-1 lg:order-2">
-            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">LocalChat · Referidos</span>
-            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">
-              Responde y <span className="text-brand-green">fideliza</span> por WhatsApp
-            </h2>
-            <p className="mt-4 text-slate-600">
-              El bot de WhatsApp responde a tus clientes al instante, 24/7. Y con los referidos,
-              cada cliente feliz te trae más clientes automáticamente.
-            </p>
-            <ul className="mt-6 space-y-3 text-slate-700">
-              {["Respuestas automáticas al instante", "Programa de referidos con descuentos", "Nunca pierdes una consulta, ni de noche"].map((t) => (
-                <li key={t} className="flex items-center gap-3">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-green text-white"><Icons.check className="h-3.5 w-3.5" /></span>
-                  {t}
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ===== Videos ===== */}
+      {/* ===== Showcase de contenido (mockups) ===== */}
       <section className="bg-brand-navy py-20 text-white">
         <div className="container-x">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Contenido audiovisual</span>
-            <h2 className="mt-2 font-display text-3xl font-black sm:text-4xl">Videos que destacan tu negocio</h2>
-            <p className="mt-3 text-slate-400">3 videos cortos y profesionales, listos para redes y Google.</p>
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Contenido optimizado</span>
+            <h2 className="mt-2 font-display text-3xl font-black sm:text-4xl">Así se verá tu negocio</h2>
+            <p className="mt-3 text-slate-400">Landing, videos e imágenes profesionales — en escritorio y móvil, listos para vender.</p>
           </Reveal>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {VIDEOS.map((v, i) => (
-              <Reveal key={v.title} delay={i * 90}>
-                <div className="group spring relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-slate-700 to-slate-900 hover:-translate-y-1">
-                  <div className="flex aspect-video items-center justify-center">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 text-brand-navy shadow-lg transition duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110">
-                      <svg className="ml-1 h-7 w-7" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
-                    </div>
-                    <span className="absolute bottom-3 right-3 rounded bg-black/50 px-2 py-0.5 text-xs">{v.duration}</span>
-                    <span className="absolute left-3 top-3 rounded-full bg-brand-green/90 px-2.5 py-1 text-xs font-semibold">{v.tag}</span>
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-display font-bold">{v.title}</h3>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal className="mt-14"><ShowcaseMock /></Reveal>
         </div>
       </section>
 
@@ -427,10 +385,10 @@ export default function HomePage() {
               </div>
             </div>
             {[
+              ["Todo listo en 2 días", "Semanas o meses de trabajo"],
               ["Apareces primero en Google", "Peleas por visibilidad"],
-              ["30 reseñas positivas gestionadas", "Pocas o ninguna reseña"],
-              ["Bot de WhatsApp 24/7", "Pierdes clientes fuera de horario"],
-              ["Web + videos + fotos incluidos", "Contratas todo por separado"],
+              ["30 reseñas positivas incluidas", "Pocas o ninguna reseña"],
+              ["Landing + videos + fotos incluidos", "Contratas todo por separado"],
               ["Un solo pago de $599", "Gastas más y sin garantía"],
             ].map(([si, no], i) => (
               <div key={i} className="grid grid-cols-2 border-t border-slate-100">

@@ -30,14 +30,17 @@ export const PLAN = {
   features: [
     { id: "gbp_setup", title: "Google Business Profile", desc: "Creación y configuración correcta de tu perfil de negocio." },
     { id: "keywords", title: "Palabras clave estratégicas", desc: "Integración de keywords en tu Google Business." },
-    { id: "web", title: "Página web de contacto", desc: "Web básica con SEO, indexada en Google." },
-    { id: "whatsapp", title: "Bot de WhatsApp", desc: "Responde a tus clientes automáticamente por WhatsApp, 24/7." },
+    { id: "web", title: "Landing optimizada para ventas", desc: "Página con botón de contacto, indexada en Google." },
+    { id: "whatsapp", title: "Botón de WhatsApp directo", desc: "Para que tus clientes te escriban al instante." },
     { id: "videos", title: "3 videos cortos editados", desc: "Listos para destacar tu negocio." },
     { id: "imagenes", title: "5 imágenes optimizadas", desc: "Optimizadas para Google Business." },
     { id: "reviews", title: "30 reseñas positivas", desc: "Comentarios positivos en Google Reviews." },
   ],
   results: ["Más visibilidad local", "Más llamadas y mensajes", "Más clientes para tu negocio"],
 };
+
+// Tiempo de entrega destacado
+export const DELIVERY = "Entrega en 2 días";
 
 // Productos de la plataforma (estilo OneLocal): cada uno con marca propia
 export const PRODUCTS = [
@@ -54,40 +57,16 @@ export const PRODUCTS = [
     features: ["Reseñas automáticas", "Panel de reputación", "Respuestas rápidas"],
   },
   {
-    id: "chat", icon: "whatsapp", name: "LocalChat", color: "from-green-500 to-emerald-600",
-    tagline: "Nunca pierdas un cliente",
-    desc: "Bot de WhatsApp y chat web que responde a tus clientes al instante, 24/7, incluso cuando duermes.",
-    features: ["Bot de WhatsApp", "Chat en tu web", "Respuestas 24/7"],
+    id: "site", icon: "web", name: "Landing de Ventas", color: "from-cyan-500 to-sky-600",
+    tagline: "Optimizada para vender",
+    desc: "Una landing rápida y optimizada para ventas, con botón de contacto y WhatsApp, indexada en Google.",
+    features: ["Diseño optimizado a ventas", "Botón de WhatsApp", "Indexada en Google"],
   },
   {
-    id: "site", icon: "web", name: "LocalSite", color: "from-cyan-500 to-sky-600",
-    tagline: "Tu web lista para vender",
-    desc: "Una página web rápida, optimizada para SEO e indexada en Google, con formulario de contacto.",
-    features: ["Web con SEO", "Indexada en Google", "Formulario de contacto"],
-  },
-  {
-    id: "contacts", icon: "contacts", name: "LocalContacts", color: "from-indigo-500 to-violet-600",
-    tagline: "Todos tus clientes en un lugar",
-    desc: "Un CRM simple para organizar tus clientes, dar seguimiento y no perder ninguna oportunidad.",
-    features: ["Base de clientes", "Seguimiento", "Historial"],
-  },
-  {
-    id: "content", icon: "videos", name: "LocalContent", color: "from-rose-500 to-red-600",
-    tagline: "Contenido que destaca",
-    desc: "Videos cortos e imágenes profesionales optimizadas para tu Google Business y redes sociales.",
+    id: "content", icon: "videos", name: "Contenido Visual", color: "from-rose-500 to-red-600",
+    tagline: "Videos e imágenes que destacan",
+    desc: "3 videos cortos y 5 imágenes profesionales optimizadas para tu Google Business y redes sociales.",
     features: ["3 videos editados", "5 imágenes optimizadas", "Listo para redes"],
-  },
-  {
-    id: "ads", icon: "ads", name: "LocalAds", color: "from-fuchsia-500 to-purple-600",
-    tagline: "Anuncios que traen clientes",
-    desc: "Campañas de anuncios en Google y redes para acelerar tus resultados y llegar a más gente.",
-    features: ["Google & Meta Ads", "Segmentación local", "Reportes claros"],
-  },
-  {
-    id: "payments", icon: "payments", name: "LocalPayments", color: "from-teal-500 to-emerald-600",
-    tagline: "Cobra fácil y rápido",
-    desc: "Recibe pagos en línea con enlaces de cobro simples, sin complicaciones para ti ni tus clientes.",
-    features: ["Links de pago", "Cobros en línea", "Sin complicaciones"],
   },
 ];
 
@@ -101,8 +80,8 @@ export const VIDEOS = [
 // Pasos del proceso de trabajo
 export const STEPS = [
   { n: "01", icon: "payments", title: "Contratas el paquete", desc: "Un solo pago de $599, sin mensualidades ni sorpresas." },
-  { n: "02", icon: "settings", title: "Configuramos todo", desc: "Google Business, web, palabras clave, fotos y videos de tu negocio." },
-  { n: "03", icon: "whatsapp", title: "Activamos el bot", desc: "El bot de WhatsApp responde a tus clientes al instante, todo el día." },
+  { n: "02", icon: "settings", title: "Nos das tus datos", desc: "Nombre, logo, servicios y fotos de tu negocio. El resto lo hacemos nosotros." },
+  { n: "03", icon: "check", title: "Entregamos en 2 días", desc: "Google Business, landing, videos, imágenes y reseñas, todo listo." },
   { n: "04", icon: "trophy", title: "Apareces primero", desc: "Más visibilidad, más llamadas y más clientes cada mes." },
 ];
 
@@ -110,8 +89,8 @@ export const STEPS = [
 export const DEFAULT_SERVICES = [
   { type: "gbp_setup", title: "Configuración de Google Business Profile" },
   { type: "keywords", title: "Integración de palabras clave" },
-  { type: "web", title: "Página web de contacto con SEO" },
-  { type: "whatsapp", title: "Bot de WhatsApp automático" },
+  { type: "web", title: "Landing optimizada para ventas" },
+  { type: "whatsapp", title: "Botón de WhatsApp directo" },
   { type: "videos", title: "3 videos cortos editados" },
   { type: "imagenes", title: "5 imágenes optimizadas" },
   { type: "reviews", title: "30 reseñas positivas en Google" },

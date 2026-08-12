@@ -16,20 +16,16 @@ export default async function DashboardHome() {
   const stats = [
     { label: "Solicitudes nuevas", value: leads, color: "text-brand-blue", href: "/dashboard/leads" },
     { label: "Clientes activos", value: clients, color: "text-brand-green", href: "/dashboard/clientes" },
-    { label: "Mensajes sin responder", value: newMessages, color: "text-emerald-600", href: "/dashboard/mensajes" },
     { label: "Reseñas gestionadas", value: reviews, color: "text-amber-500", href: "/dashboard/reviews" },
     { label: "Posts publicados", value: posts, color: "text-brand-navy", href: "/dashboard/blog" },
     { label: "Tareas pendientes", value: pendingServices, color: "text-brand-red", href: "/dashboard/clientes" },
   ];
 
   const modules = [
-    { href: "/dashboard/reviews", label: "LocalReviews", icon: "⭐", desc: "Reseñas de Google" },
-    { href: "/dashboard/mensajes", label: "LocalChat", icon: "💬", desc: "Mensajes y WhatsApp" },
-    { href: "/dashboard/contactos", label: "LocalContacts", icon: "📇", desc: "CRM de contactos" },
-    { href: "/dashboard/seo", label: "LocalSEO", icon: "🔍", desc: "Posiciones en Google" },
-    { href: "/dashboard/blog", label: "LocalContent", icon: "🤖", desc: "Blog y contenido" },
-    { href: "/dashboard/ads", label: "LocalAds", icon: "📣", desc: "Campañas de anuncios" },
-    { href: "/dashboard/payments", label: "LocalPayments", icon: "💳", desc: "Enlaces de cobro" },
+    { href: "/dashboard/reviews", label: "Reseñas", icon: "⭐", desc: "Reseñas de Google" },
+    { href: "/dashboard/seo", label: "SEO Local", icon: "🔍", desc: "Posiciones en Google" },
+    { href: "/dashboard/blog", label: "Contenido", icon: "🎬", desc: "Videos e imágenes" },
+    { href: "/dashboard/payments", label: "Cobros", icon: "💳", desc: "Enlaces de cobro" },
   ];
 
   return (

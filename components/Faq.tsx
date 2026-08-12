@@ -5,7 +5,7 @@ const FAQS = [
   { q: "¿Cuánto tarda en verse resultados?", a: "La configuración se completa en pocos días. Los primeros resultados en Google suelen notarse entre 2 y 6 semanas, dependiendo de tu zona y competencia." },
   { q: "¿Hay mensualidad?", a: "No. Es un pago único de $599. Sin mensualidades ni sorpresas. Los servicios de anuncios o dominios propios, si los quieres, se cotizan aparte." },
   { q: "¿Qué necesitan de mí para empezar?", a: "Solo los datos de tu negocio: nombre, dirección, teléfono, tus servicios y algunas fotos. Nosotros nos encargamos del resto." },
-  { q: "¿El bot de WhatsApp responde solo?", a: "Sí. Configuramos respuestas automáticas para tus preguntas más comunes, 24/7. Tú puedes tomar la conversación cuando quieras." },
+  { q: "¿En cuánto tiempo lo entregan?", a: "En solo 2 días tienes todo listo y funcionando: Google Business, tu landing, los videos, las imágenes y las reseñas." },
   { q: "¿Y si ya tengo Google Business?", a: "Perfecto. Lo optimizamos y mejoramos con palabras clave, fotos y reseñas para que suba de posición." },
 ];
 
