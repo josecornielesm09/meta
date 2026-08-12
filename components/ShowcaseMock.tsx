@@ -1,4 +1,5 @@
 import { VIDEOS } from "@/lib/plan";
+import Media from "@/components/Media";
 
 const Play = ({ c = "h-6 w-6" }: { c?: string }) => (
   <svg className={c} viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
@@ -73,14 +74,22 @@ export default function ShowcaseMock() {
 
       {/* ===== Videos ===== */}
       <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-4">
-        {VIDEOS.map((v) => (
+        {VIDEOS.map((v, i) => (
           <div key={v.title} className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-700 to-slate-900">
-            <div className="relative flex aspect-video items-center justify-center">
-              <Person c="absolute bottom-0 right-2 h-16 w-16 text-white/10" />
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-brand-navy shadow transition group-hover:scale-110"><Play c="ml-0.5 h-4 w-4" /></span>
+            <div className="relative aspect-video">
+              {/* imagen real si existe; si no, respaldo con silueta */}
+              <Media
+                src={`/media/video-${i + 1}.jpg`}
+                alt={v.title}
+                className="absolute inset-0 h-full w-full object-cover"
+                fallback={<Person c="absolute bottom-0 right-2 h-16 w-16 text-white/10" />}
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-brand-navy shadow transition group-hover:scale-110"><Play c="ml-0.5 h-4 w-4" /></span>
+              </div>
               <span className="absolute left-2 top-2 rounded-full bg-brand-green/90 px-2 py-0.5 text-[9px] font-semibold text-white">{v.tag}</span>
               <span className="absolute bottom-2 right-2 rounded bg-black/50 px-1.5 py-0.5 text-[9px] text-white">{v.duration}</span>
-              <span className="absolute bottom-2 left-2 max-w-[70%] text-[9px] font-bold uppercase leading-tight text-white sm:text-[10px]">{v.title}</span>
+              <span className="absolute bottom-2 left-2 max-w-[70%] text-[9px] font-bold uppercase leading-tight text-white drop-shadow sm:text-[10px]">{v.title}</span>
             </div>
           </div>
         ))}

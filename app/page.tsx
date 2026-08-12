@@ -9,6 +9,7 @@ import PanelMock from "@/components/PanelMock";
 import ShowcaseMock from "@/components/ShowcaseMock";
 import StackedReviews from "@/components/StackedReviews";
 import MapCard from "@/components/MapCard";
+import Media from "@/components/Media";
 import MobileMenu from "@/components/MobileMenu";
 import Faq from "@/components/Faq";
 
@@ -149,7 +150,14 @@ export default function HomePage() {
             <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Contenido optimizado</span>
             <h3 className="mt-2 font-display text-2xl font-black text-brand-navy sm:text-3xl">Así se verá tu negocio</h3>
           </Reveal>
-          <Reveal className="mt-8 rounded-3xl bg-brand-navy p-6 sm:p-10"><ShowcaseMock /></Reveal>
+          <Reveal className="mt-8 rounded-3xl bg-brand-navy p-6 sm:p-10">
+            <div className="hidden sm:block">
+              <Media src="/media/showcase-desktop.png" alt="Contenido del negocio" className="mx-auto w-full max-w-4xl rounded-xl" fallback={<ShowcaseMock />} />
+            </div>
+            <div className="sm:hidden">
+              <Media src="/media/showcase-mobile.png" alt="Contenido del negocio" className="mx-auto w-full max-w-sm rounded-xl" fallback={<ShowcaseMock />} />
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -272,18 +280,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== 9. Resultados (ejemplo) ===== */}
+      {/* ===== 9. Presencia digital (Google Business) ===== */}
       <section className="bg-slate-50 py-16 sm:py-20">
-        <div className="container-x grid items-center gap-12 lg:grid-cols-2">
-          <Reveal>
-            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Visibilidad en el mapa</span>
+        <div className="container-x">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Presencia digital que genera confianza</span>
             <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">Aparece donde te buscan</h2>
-            <p className="mt-4 text-slate-600">
-              Optimizamos tu ficha para que tu negocio se vea en el mapa cuando buscan tus servicios cerca. Así generas más clics, llamadas y visitas.
-            </p>
-            <p className="mt-4 text-xs text-slate-400">* Los paneles y gráficas son ejemplos ilustrativos, no resultados de un cliente específico.</p>
+            <p className="mt-3 text-slate-500">Perfil de Google Business, reseñas y posicionamiento local para atraer más clientes cada día.</p>
           </Reveal>
-          <Reveal delay={120}><MapCard /></Reveal>
+          <Reveal className="mt-10">
+            {/* imagen del mockup de Google (si existe); si no, respaldo con mapa + reseñas */}
+            <div className="hidden lg:block">
+              <Media src="/media/google-desktop.png" alt="Presencia en Google Business"
+                className="mx-auto w-full max-w-5xl rounded-2xl shadow-soft"
+                fallback={<div className="grid items-center gap-8 lg:grid-cols-2"><MapCard /><StackedReviews /></div>} />
+            </div>
+            <div className="lg:hidden">
+              <Media src="/media/google-mobile.png" alt="Presencia en Google Business"
+                className="mx-auto w-full max-w-md rounded-2xl shadow-soft"
+                fallback={<MapCard />} />
+            </div>
+          </Reveal>
+          <p className="mt-6 text-center text-xs text-slate-400">* Los paneles y ejemplos son ilustrativos, no resultados de un cliente específico.</p>
         </div>
       </section>
 

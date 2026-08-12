@@ -1,0 +1,17 @@
+COLOCA AQUÍ TUS IMÁGENES CON ESTOS NOMBRES EXACTOS.
+En cuanto pongas un archivo, aparece solo en la web. Si falta, se muestra el mockup de respaldo.
+
+— Mockup "Presencia digital / Google Business":
+  google-desktop.png   (versión escritorio, ~1600px de ancho)
+  google-mobile.png    (versión móvil, ~800px de ancho)
+
+— Sección "Así se verá tu negocio":
+  showcase-desktop.png (~1400px)
+  showcase-mobile.png  (~800px)
+
+— Miniaturas de video (16:9, ~640x360):
+  video-1.jpg
+  video-2.jpg
+  video-3.jpg
+
+Formato recomendado: JPG o WebP para que carguen rápido.
