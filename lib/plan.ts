@@ -79,10 +79,10 @@ export const VIDEOS = [
 
 // Pasos del proceso de trabajo
 export const STEPS = [
-  { n: "01", title: "Contratas el paquete", desc: "Un solo pago de $599, sin mensualidades ni sorpresas." },
-  { n: "02", title: "Configuramos todo", desc: "Google Business, web, palabras clave, fotos y videos de tu negocio." },
-  { n: "03", title: "Activamos el bot", desc: "El bot de WhatsApp responde a tus clientes al instante, todo el día." },
-  { n: "04", title: "Apareces primero", desc: "Más visibilidad, más llamadas y más clientes cada mes." },
+  { n: "01", icon: "payments", title: "Contratas el paquete", desc: "Un solo pago de $599, sin mensualidades ni sorpresas." },
+  { n: "02", icon: "settings", title: "Configuramos todo", desc: "Google Business, web, palabras clave, fotos y videos de tu negocio." },
+  { n: "03", icon: "whatsapp", title: "Activamos el bot", desc: "El bot de WhatsApp responde a tus clientes al instante, todo el día." },
+  { n: "04", icon: "trophy", title: "Apareces primero", desc: "Más visibilidad, más llamadas y más clientes cada mes." },
 ];
 
 // Servicios/entregables que se crean automáticamente para cada cliente nuevo

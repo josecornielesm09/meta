@@ -282,16 +282,27 @@ export default function HomePage() {
             <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">Cómo funciona</h2>
             <p className="mt-3 text-slate-500">De la contratación a los primeros lugares de Google, sin complicaciones.</p>
           </Reveal>
-          <div className="mt-12 grid gap-6 md:grid-cols-4">
-            {STEPS.map((s, i) => (
-              <Reveal key={s.n} delay={i * 90}>
-                <div className="spring relative h-full rounded-2xl border border-slate-200 bg-white p-6 hover:-translate-y-1 hover:shadow-card">
-                  <div className="font-display text-4xl font-black text-slate-100">{s.n}</div>
-                  <h3 className="mt-2 font-display text-lg font-bold text-brand-navy">{s.title}</h3>
-                  <p className="mt-1.5 text-sm text-slate-600">{s.desc}</p>
-                </div>
-              </Reveal>
-            ))}
+          <div className="relative mt-16 grid gap-8 md:grid-cols-4">
+            {/* línea conectora */}
+            <div className="pointer-events-none absolute left-[12%] right-[12%] top-8 hidden h-0.5 bg-gradient-to-r from-brand-green/30 via-brand-green/50 to-brand-green/30 md:block" />
+            {STEPS.map((s, i) => {
+              const Icon = Icons[s.icon] ?? Icons.check;
+              return (
+                <Reveal key={s.n} delay={i * 110}>
+                  <div className="group relative flex h-full flex-col items-center text-center">
+                    {/* badge con icono */}
+                    <div className="spring relative z-10 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-green to-emerald-500 text-white shadow-lg shadow-brand-green/30 group-hover:-translate-y-1">
+                      <Icon className="h-8 w-8" />
+                      <span className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-brand-navy text-[11px] font-black text-white">{i + 1}</span>
+                    </div>
+                    <div className="mt-5 w-full flex-1 rounded-2xl border border-slate-200 bg-white p-5 transition duration-300 group-hover:border-brand-green/40 group-hover:shadow-card">
+                      <h3 className="font-display text-lg font-bold text-brand-navy">{s.title}</h3>
+                      <p className="mt-1.5 text-sm text-slate-600">{s.desc}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
