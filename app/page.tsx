@@ -109,7 +109,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== 3. Todo lo que incluye ===== */}
-      <section id="incluye" className="bg-slate-50 py-16 sm:py-20">
+      <section id="incluye" className="bg-slate-50 py-12 sm:py-16">
         <div className="container-x">
           <Reveal className="mx-auto max-w-2xl text-center">
             <span className="text-sm font-bold uppercase tracking-widest text-brand-green">La oferta completa</span>
@@ -138,7 +138,7 @@ export default function HomePage() {
           </div>
 
           {/* Un solo ecosistema (imagen del cliente con respaldo al slider) */}
-          <Reveal className="mt-16">
+          <Reveal className="mt-10">
             {/* respaldo cuando aún no subes la imagen */}
             {(() => {
               const Fallback = (
@@ -167,7 +167,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== 5. Antes / Después ===== */}
-      <section className="bg-slate-50 py-16 sm:py-20">
+      <section className="bg-slate-50 py-12 sm:py-16">
         <div className="container-x">
           <Reveal className="mx-auto max-w-2xl text-center">
             <span className="text-sm font-bold uppercase tracking-widest text-brand-green">La transformación</span>
@@ -203,7 +203,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== Tipos de negocios ===== */}
-      <section className="py-16 sm:py-20">
+      <section className="py-12 sm:py-16">
         <div className="container-x">
           <Reveal className="mx-auto max-w-2xl text-center">
             <span className="text-sm font-bold uppercase tracking-widest text-brand-green">¿Para quién es?</span>
@@ -220,7 +220,7 @@ export default function HomePage() {
       </section>
 
       {/* ===== Precio ===== */}
-      <section id="precio" className="bg-slate-50 py-16 sm:py-20">
+      <section id="precio" className="bg-slate-50 py-12 sm:py-16">
         <div className="container-x">
           <Reveal className="mx-auto max-w-2xl text-center">
             <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Una inversión, todo incluido</span>
