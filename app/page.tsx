@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PLAN, VIDEOS, STEPS } from "@/lib/plan";
+import { PLAN, VIDEOS, STEPS, PRODUCTS } from "@/lib/plan";
 import { Icons, Stars } from "@/components/Icons";
 import Reveal from "@/components/Reveal";
 import LogoMarquee from "@/components/LogoMarquee";
@@ -105,7 +105,7 @@ export default function HomePage() {
             SEO<span className="text-brand-green">Local</span>
           </span>
           <nav className="hidden gap-8 text-sm font-medium text-slate-300 md:flex">
-            <a href="#servicios" className="transition hover:text-white">Servicios</a>
+            <a href="#productos" className="transition hover:text-white">Productos</a>
             <a href="#como" className="transition hover:text-white">Cómo funciona</a>
             <a href="#precio" className="transition hover:text-white">Precio</a>
             <Link href="/blog" className="transition hover:text-white">Blog</Link>
@@ -125,22 +125,22 @@ export default function HomePage() {
         <div className="container-x relative grid items-center gap-12 py-16 lg:grid-cols-2 lg:py-24">
           <div className="animate-fade-up">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold text-slate-200">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-brand-green" /> SEO Local · Resultados reales
+              <span className="h-2 w-2 animate-pulse rounded-full bg-brand-green" /> La plataforma de marketing local todo-en-uno
             </span>
             <h1 className="mt-5 font-display text-4xl font-black leading-[1.05] sm:text-5xl lg:text-[3.4rem]">
-              Posiciona tu negocio en <GoogleWord />
+              Todo tu marketing local, en <GoogleWord />
             </h1>
             <p className="mt-5 max-w-md text-lg leading-relaxed text-slate-300">
-              Servicio completo de SEO Local para que tu negocio{" "}
-              <strong className="text-white">aparezca primero en Google</strong> y destaque sobre la competencia.
+              Una sola plataforma con todo lo que tu negocio necesita para{" "}
+              <strong className="text-white">aparecer primero en Google</strong>, conseguir reseñas, responder clientes y crecer.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link href="/pedido" className="press group inline-flex items-center gap-2 rounded-full bg-brand-green px-7 py-3.5 font-bold text-white shadow-xl shadow-brand-green/30 transition hover:bg-brand-greenDark">
-                Contratar por ${PLAN.price}
+                Empezar por ${PLAN.price}
                 <span className="transition group-hover:translate-x-1">→</span>
               </Link>
-              <a href="#servicios" className="press inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-3.5 font-bold text-white transition hover:bg-white/10">
-                Ver qué incluye
+              <a href="#productos" className="press inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-3.5 font-bold text-white transition hover:bg-white/10">
+                Ver la plataforma
               </a>
             </div>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-400">
@@ -166,7 +166,7 @@ export default function HomePage() {
         {/* franja de métricas */}
         <div className="relative border-t border-white/10 bg-white/[0.03]">
           <div className="container-x grid grid-cols-2 gap-4 py-8 text-center md:grid-cols-4">
-            {[["30+", "Reseñas positivas"], ["7", "Entregables incluidos"], ["24/7", "Bot de WhatsApp"], ["$599", "Pago único"]].map(([n, l]) => (
+            {[["8", "Productos integrados"], ["30+", "Reseñas positivas"], ["24/7", "Bot de WhatsApp"], ["$599", "Desde"]].map(([n, l]) => (
               <div key={l}>
                 <div className="font-display text-3xl font-black text-white">{n}</div>
                 <div className="mt-1 text-sm text-slate-400">{l}</div>
@@ -186,59 +186,55 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== Servicios ===== */}
-      <section id="servicios" className="bg-slate-50 py-20">
+      {/* ===== Productos (plataforma) ===== */}
+      <section id="productos" className="bg-slate-50 py-20">
         <div className="container-x">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Todo incluido</span>
+            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Una plataforma, todo incluido</span>
             <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">
-              ¿Qué incluye este servicio?
+              8 productos que trabajan <span className="text-brand-green">juntos</span>
             </h2>
-            <p className="mt-3 text-slate-500">Un paquete completo para dominar las búsquedas locales de tu zona.</p>
+            <p className="mt-3 text-slate-500">Cada herramienta de marketing local que tu negocio necesita, integrada en un solo lugar.</p>
           </Reveal>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {PLAN.features.map((f, i) => {
-              const Icon = Icons[f.id] ?? Icons.check;
-              const scenes: Record<string, string> = {
-                gbp_setup: "from-blue-500 to-brand-blue",
-                keywords: "from-violet-500 to-indigo-600",
-                web: "from-cyan-500 to-sky-600",
-                whatsapp: "from-green-500 to-emerald-600",
-                videos: "from-rose-500 to-red-600",
-                imagenes: "from-amber-400 to-orange-500",
-                reviews: "from-yellow-400 to-amber-500",
-              };
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {PRODUCTS.map((p, i) => {
+              const Icon = Icons[p.icon] ?? Icons.check;
               return (
-                <Reveal key={f.id} delay={(i % 3) * 90}>
-                  <div className="group spring h-full overflow-hidden rounded-2xl border border-slate-200 bg-white hover:-translate-y-1.5 hover:border-brand-green/40 hover:shadow-soft">
-                    {/* "foto" ilustrada */}
-                    <div className={`relative flex h-32 items-center justify-center bg-gradient-to-br ${scenes[f.id] ?? "from-slate-500 to-slate-700"}`}>
+                <Reveal key={p.id} delay={(i % 4) * 80}>
+                  <div className="group spring flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white hover:-translate-y-1.5 hover:border-brand-green/40 hover:shadow-soft">
+                    <div className={`relative flex h-28 items-center justify-center bg-gradient-to-br ${p.color}`}>
                       <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 20% 20%, #fff 1px, transparent 1px)", backgroundSize: "16px 16px" }} />
-                      <Icon className="h-12 w-12 text-white drop-shadow transition duration-500 group-hover:scale-110" />
-                      <Icon className="pointer-events-none absolute -bottom-4 -right-3 h-24 w-24 text-white/10" />
+                      <Icon className="h-11 w-11 text-white drop-shadow transition duration-500 group-hover:scale-110" />
+                      <Icon className="pointer-events-none absolute -bottom-3 -right-2 h-20 w-20 text-white/10" />
                     </div>
-                    <div className="p-6">
-                      <h3 className="font-display text-lg font-bold text-brand-navy">{f.title}</h3>
-                      <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{f.desc}</p>
+                    <div className="flex flex-1 flex-col p-5">
+                      <h3 className="font-display text-lg font-bold text-brand-navy">{p.name}</h3>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-brand-green">{p.tagline}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-600">{p.desc}</p>
+                      <ul className="mt-3 space-y-1.5">
+                        {p.features.map((ft) => (
+                          <li key={ft} className="flex items-center gap-2 text-xs text-slate-500">
+                            <span className="flex h-4 w-4 items-center justify-center rounded-full bg-green-100 text-brand-greenDark"><Icons.check className="h-2.5 w-2.5" /></span>
+                            {ft}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                 </Reveal>
               );
             })}
-            {/* tarjeta destacada de cierre */}
-            <Reveal delay={180}>
-              <div className="flex h-full flex-col justify-center rounded-2xl bg-gradient-to-br from-brand-green to-brand-greenDark p-6 text-white">
-                <div className="font-display text-3xl font-black">7 en 1</div>
-                <p className="mt-2 text-sm text-green-50">
-                  Todos los servicios que necesitas para dominar Google, en un solo paquete.
-                </p>
-                <Link href="/pedido" className="press mt-4 inline-flex w-fit items-center gap-1 rounded-full bg-white px-4 py-2 text-sm font-bold text-brand-greenDark">
-                  Empezar →
-                </Link>
-              </div>
-            </Reveal>
           </div>
+
+          <Reveal className="mt-10 text-center">
+            <div className="inline-flex flex-wrap items-center justify-center gap-4 rounded-2xl bg-brand-navy px-8 py-6 text-white">
+              <span className="font-display text-lg font-bold">Todos los productos, un solo precio.</span>
+              <Link href="/pedido" className="press rounded-full bg-brand-green px-6 py-3 font-bold text-white transition hover:bg-brand-greenDark">
+                Empezar por ${PLAN.price} →
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 
