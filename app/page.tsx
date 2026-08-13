@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PLAN, waLink, SITE, CTA, BUSINESS_TYPES, BEFORE, AFTER, SYSTEM, SYSTEM_NAME } from "@/lib/plan";
+import { PLAN, waLink, SITE, CTA, BUSINESS_TYPES, BEFORE, AFTER, SYSTEM_NAME } from "@/lib/plan";
 import { Icons, Stars } from "@/components/Icons";
 import Reveal from "@/components/Reveal";
 import LogoMarquee from "@/components/LogoMarquee";
@@ -47,7 +47,7 @@ export default function HomePage() {
           </Link>
           <nav className="hidden gap-7 text-sm font-medium text-slate-300 md:flex">
             <a href="#incluye" className="transition hover:text-white">Qué incluye</a>
-            <a href="#sistema" className="transition hover:text-white">Sistema</a>
+            <a href="#como" className="transition hover:text-white">Cómo funciona</a>
             <a href="#reputacion" className="transition hover:text-white">Reseñas</a>
             <a href="#precio" className="transition hover:text-white">Precio</a>
             <a href="#faq" className="transition hover:text-white">FAQ</a>
@@ -161,36 +161,6 @@ export default function HomePage() {
             <p className="mt-2 text-sm text-slate-500">Desliza para ver tu página web, videos, imágenes y perfil de Google.</p>
           </Reveal>
           <Reveal className="mx-auto mt-8 max-w-2xl"><ContentSlider /></Reveal>
-        </div>
-      </section>
-
-      {/* ===== 4. Sistema de Posicionamiento Local ===== */}
-      <section id="sistema" className="py-16 sm:py-20">
-        <div className="container-x">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">No son piezas sueltas</span>
-            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">{SYSTEM_NAME}</h2>
-            <p className="mt-3 text-slate-500">No estás comprando “una web + unas imágenes”. Construimos una presencia digital completa donde cada elemento potencia al siguiente.</p>
-          </Reveal>
-
-          <div className="mt-12 flex flex-col items-stretch gap-3 md:flex-row md:items-center md:justify-center">
-            {SYSTEM.map((s, i) => {
-              const Icon = Icons[s.icon] ?? Icons.check;
-              const last = i === SYSTEM.length - 1;
-              return (
-                <Reveal key={s.label} delay={i * 90} className="md:contents">
-                  <div className={`relative flex items-center gap-3 rounded-2xl border p-4 md:w-36 md:flex-col md:text-center ${last ? "border-brand-green bg-red-50" : "border-slate-200 bg-white"}`}>
-                    <span className={`absolute left-2 top-2 flex h-5 w-5 items-center justify-center rounded-full text-[11px] font-black md:left-1/2 md:-top-2.5 md:-translate-x-1/2 ${last ? "bg-brand-green text-white" : "bg-brand-navy text-white"}`}>{i + 1}</span>
-                    <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${last ? "bg-brand-green text-white" : "bg-brand-navy text-brand-green"}`}>
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <span className={`text-sm font-bold ${last ? "text-brand-greenDark" : "text-brand-navy"}`}>{s.label}</span>
-                  </div>
-                  {!last && <span className="mx-auto text-brand-green md:mx-0">↓<span className="hidden md:inline">→</span></span>}
-                </Reveal>
-              );
-            })}
-          </div>
         </div>
       </section>
 
@@ -422,7 +392,7 @@ export default function HomePage() {
           <div>
             <div className="mb-3 text-sm font-bold text-white">Enlaces</div>
             <ul className="space-y-2 text-sm">
-              <li><a href="#sistema" className="transition hover:text-white">El sistema</a></li>
+              <li><a href="#como" className="transition hover:text-white">Cómo funciona</a></li>
               <li><a href="#precio" className="transition hover:text-white">Precio</a></li>
               <li><a href="#faq" className="transition hover:text-white">Preguntas frecuentes</a></li>
               <li><Link href="/dashboard" className="transition hover:text-white">Panel</Link></li>
