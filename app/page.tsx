@@ -11,6 +11,7 @@ import StackedReviews from "@/components/StackedReviews";
 import MapCard from "@/components/MapCard";
 import Media from "@/components/Media";
 import Ecosistema from "@/components/Ecosistema";
+import ComoFunciona from "@/components/ComoFunciona";
 import MobileMenu from "@/components/MobileMenu";
 import Faq from "@/components/Faq";
 import TypingGoogle from "@/components/TypingGoogle";
@@ -192,6 +193,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ===== Cómo funciona ===== */}
+      <ComoFunciona />
 
       {/* ===== 5. Antes / Después ===== */}
       <section className="bg-slate-50 py-16 sm:py-20">

@@ -52,6 +52,14 @@ h3 { letter-spacing: -0.015em; }
 }
 .animate-floaty { animation: floaty 5s ease-in-out infinite; }
 
+/* Brillo que recorre la línea conectora de "Cómo funciona" */
+@keyframes comoFlow {
+  0% { transform: translateX(-100%); opacity: 0; }
+  40%, 60% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+.como-flow { animation: comoFlow 3.2s ease-in-out infinite; }
+
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
@@ -115,7 +123,7 @@ h3 { letter-spacing: -0.015em; }
     transition-duration: 0.15s !important;
     scroll-behavior: auto !important;
   }
-  .animate-floaty, .animate-marquee { animation: none !important; }
+  .animate-floaty, .animate-marquee, .como-flow { animation: none !important; }
 }
 @media (prefers-reduced-transparency: reduce) {
   .glass { background: #fff; backdrop-filter: none; -webkit-backdrop-filter: none; }
