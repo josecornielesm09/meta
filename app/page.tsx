@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PLAN, waLink, SITE, CTA, BUSINESS_TYPES, BEFORE, AFTER, SYSTEM_NAME } from "@/lib/plan";
+import { PLAN, waLink, SITE, CTA, BEFORE, AFTER, SYSTEM_NAME } from "@/lib/plan";
 import { Icons, Stars } from "@/components/Icons";
 import Reveal from "@/components/Reveal";
 import LogoMarquee from "@/components/LogoMarquee";
@@ -8,8 +8,6 @@ import GoogleReviews from "@/components/GoogleReviews";
 import PanelMock from "@/components/PanelMock";
 import ContentSlider from "@/components/ContentSlider";
 import StackedReviews from "@/components/StackedReviews";
-import MapCard from "@/components/MapCard";
-import Media from "@/components/Media";
 import Ecosistema from "@/components/Ecosistema";
 import ComoFunciona from "@/components/ComoFunciona";
 import MobileMenu from "@/components/MobileMenu";
@@ -237,48 +235,6 @@ export default function HomePage() {
             </p>
           </Reveal>
           <Reveal delay={120}><StackedReviews /></Reveal>
-        </div>
-      </section>
-
-      {/* ===== 8. Tipos de negocios ===== */}
-      <section className="py-16 sm:py-20">
-        <div className="container-x">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">¿Para quién es?</span>
-            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">Ideal para negocios locales</h2>
-          </Reveal>
-          <div className="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-3">
-            {BUSINESS_TYPES.map((b) => (
-              <span key={b.label} className="spring inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 hover:-translate-y-0.5 hover:border-brand-green/40 hover:shadow-card">
-                <span className="text-lg">{b.icon}</span> {b.label}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== 9. Presencia digital (Google Business) ===== */}
-      <section className="bg-slate-50 py-16 sm:py-20">
-        <div className="container-x">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Presencia digital que genera confianza</span>
-            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">Aparece donde te buscan</h2>
-            <p className="mt-3 text-slate-500">Perfil de Google Business, reseñas y posicionamiento local para atraer más clientes cada día.</p>
-          </Reveal>
-          <Reveal className="mt-10">
-            {/* imagen del mockup de Google (si existe); si no, respaldo con mapa + reseñas */}
-            <div className="hidden lg:block">
-              <Media src="/media/google-desktop.png" alt="Presencia en Google Business"
-                className="mx-auto w-full max-w-5xl rounded-2xl shadow-soft"
-                fallback={<div className="grid items-center gap-8 lg:grid-cols-2"><MapCard /><StackedReviews /></div>} />
-            </div>
-            <div className="lg:hidden">
-              <Media src="/media/google-mobile.png" alt="Presencia en Google Business"
-                className="mx-auto w-full max-w-md rounded-2xl shadow-soft"
-                fallback={<MapCard />} />
-            </div>
-          </Reveal>
-          <p className="mt-6 text-center text-xs text-slate-400">* Los paneles y ejemplos son ilustrativos, no resultados de un cliente específico.</p>
         </div>
       </section>
 
