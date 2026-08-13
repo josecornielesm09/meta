@@ -4,7 +4,6 @@ import { Icons, Stars } from "@/components/Icons";
 import Reveal from "@/components/Reveal";
 import LogoMarquee from "@/components/LogoMarquee";
 import SerpMock from "@/components/SerpMock";
-import GoogleReviews from "@/components/GoogleReviews";
 import PanelMock from "@/components/PanelMock";
 import ContentSlider from "@/components/ContentSlider";
 import StackedReviews from "@/components/StackedReviews";
@@ -231,17 +230,6 @@ export default function HomePage() {
             </p>
           </Reveal>
           <Reveal delay={120}><StackedReviews /></Reveal>
-        </div>
-      </section>
-
-      {/* ===== 10. Testimonios ===== */}
-      <section className="py-16 sm:py-20">
-        <div className="container-x">
-          <Reveal className="mx-auto mb-10 max-w-2xl text-center">
-            <span className="text-sm font-bold uppercase tracking-widest text-brand-green">Testimonios</span>
-            <h2 className="mt-2 font-display text-3xl font-black text-brand-navy sm:text-4xl">Lo que dicen los negocios</h2>
-          </Reveal>
-          <Reveal><GoogleReviews /></Reveal>
         </div>
       </section>
 
