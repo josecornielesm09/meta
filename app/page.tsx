@@ -110,11 +110,7 @@ export default function HomePage() {
       {/* ===== 2. Prueba / confianza + resumen visual ===== */}
       <section className="bg-white py-12">
         <div className="container-x">
-          <Reveal className="mx-auto mb-4 max-w-3xl text-center">
-            <h2 className="font-display text-2xl font-black text-brand-navy sm:text-3xl">
-              Todo en un solo ecosistema para <span className="text-brand-blue">más visibilidad</span> y más clientes
-            </h2>
-          </Reveal>
+          <h2 className="sr-only">Todo en un solo ecosistema para más visibilidad y más clientes</h2>
           <Reveal><Ecosistema /></Reveal>
           <p className="mb-6 mt-12 text-center text-sm font-semibold uppercase tracking-widest text-slate-400">
             Negocios locales que confían en nosotros
@@ -303,10 +299,10 @@ export default function HomePage() {
         <div className="dot-grid absolute inset-0 opacity-20" />
         <div className="container-x relative">
           <h2 className="mx-auto max-w-2xl font-display text-2xl font-black leading-tight sm:text-4xl">
-            Tus clientes ya están buscando en Google. Haz que encuentren tu negocio.
+            Da el primer paso hoy y aparece donde te buscan
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-lg text-red-50">
-            Mejora tu presencia digital con un sistema completo diseñado para negocios locales.
+            Un solo pago, sin mensualidades. Empieza a atraer más clientes desde tu perfil de Google.
           </p>
           <a href={waMain()} target="_blank" rel="noopener noreferrer" className="press mt-7 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-lg font-bold text-brand-greenDark shadow-lg transition hover:bg-slate-100">
             {CTA} · ${PLAN.price}
